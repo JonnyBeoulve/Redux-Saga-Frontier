@@ -1,0 +1,38 @@
+.app {
+  text-align: center;
+}
+
+.app-header {
+  background-color: rgb(110, 104, 91);
+  height: 120px;
+  padding: 20px;
+  color: white;
+}
+
+.app-title {
+  font-size: 2em;
+  line-height: 75px;
+}
+
+.app-intro {
+  font-size: large;
+}
+
+.character-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+}
+
+.character-image {
+  height: 160px;
+  width: 160px;
+  border-radius: 100%;
+}
+
+.character-randomize-button {
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  cursor: pointer;
+}

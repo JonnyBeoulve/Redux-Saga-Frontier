@@ -1,0 +1,26 @@
+{
+  "name": "redux-saga-frontier",
+  "version": "0.1.0",
+  "author": "Jonathan Leack",
+  "description": "This website will allow users to randomize then confirm a group of four characters to embark on a RPG journey. The program is intended to demonstrate a baseline setup of Redux and Saga with React.",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.17"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0"
+  }
+}
