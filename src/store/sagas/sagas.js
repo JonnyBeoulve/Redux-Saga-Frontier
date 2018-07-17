@@ -12,19 +12,20 @@ export function* watcherSaga() {
 // Once a Redux action is intercepted, perform API call for random character data. Then,
 // randomize a seed to be used to obtain a random sprite avatar from the Dicebear avatars
 // API, which will additionally match gender between APIs before either putting a 
-// success or failure result.
+// success or failure result. Note that the character number is passed in by the
+// Redux dispatch to specifically only update the corresponding character index.
 =======================================================================================*/
-function* workerSaga() {
+function* workerSaga(request) {
+  const characterNumber = request.character;
   try {
     const randomCharacterResponse = yield call(fetchCharacterData);
     const characterData = randomCharacterResponse.data.results[0];
     const characterGender = (characterData.gender === 'male') ? 'male' : 'female';
     const randomSeed = yield call(randomAvatarSeed);
-    const characterAvatar = `https://avatars.dicebear.com/v2/${characterGender}/${randomSeed}.svg`;
-
-    yield put({ type: "API_CALL_SUCCESS", characterAvatar, characterData });
+    const characterAvatars = `https://avatars.dicebear.com/v2/${characterGender}/${randomSeed}.svg`;
+    yield put({ type: "API_CALL_SUCCESS", characterAvatars, characterData, characterNumber });
   } catch (error) {
-    yield put({ type: "API_CALL_FAILURE", error });
+    yield put({ type: "API_CALL_FAILURE", error, characterNumber });
   }
 }
 

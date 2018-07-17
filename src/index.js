@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./containers/App";
+
+import CharacterSelect from "./containers/CharacterSelect/CharacterSelect";
 import registerServiceWorker from "./registerServiceWorker";
+import "./index.css";
 
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
@@ -26,7 +27,7 @@ sagaMiddleware.run(watcherSaga);
 =======================================================================================*/
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <CharacterSelect />
   </Provider>,
   document.getElementById("root")
 );
