@@ -1,0 +1,15 @@
+.footer {
+    margin: -20px 0px 0px 0px;
+    height: 400px;
+    background: rgb(65, 60, 51);;
+}
+
+.footer p {
+    text-align: center;
+    line-height: 400px;
+    color: rgb(196, 189, 174);
+}
+
+.footer a {
+    color: #fff;
+}

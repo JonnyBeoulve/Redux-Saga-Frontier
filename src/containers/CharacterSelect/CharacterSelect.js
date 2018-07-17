@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import Header from '../../components/Header/Header'
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import placeholderLogo from "../../assets/img/saga-frontier-placeholder.jpg";
 import "./CharacterSelect.css";
 
@@ -100,7 +101,7 @@ class CharacterSelect extends Component {
               : null }
             { (characterData[2]) 
               ? <p className="character-data">
-                  {characterData[0].name.first} {characterData[2].name.last}
+                  {characterData[2].name.first} {characterData[2].name.last}
                 </p>
               : null }
             { (characterData[2]) 
@@ -158,6 +159,7 @@ class CharacterSelect extends Component {
               </p>}
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
