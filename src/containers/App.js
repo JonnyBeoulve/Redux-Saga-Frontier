@@ -8,28 +8,63 @@ import "./App.css";
 =======================================================================================*/
 class App extends Component {
   render() {
-    const { character, fetching, error, onRequestCharacter, } = this.props;
+    const { 
+      characterAvatar, 
+      characterData, 
+      fetching, 
+      error, 
+      onRequestCharacter, 
+    } = this.props;
 
     return (
       <div className="app">
         <header className="app-header">
-          <h1 className="app-title">Redux Saga Frontier</h1>
+          <h1 className="app-title">
+            Redux Saga Frontier
+          </h1>
         </header>
 
-        <div className="character-div">
-          { (character) 
-            ? <p className="app-intro">Switch character (optional)</p>
-            : <p className="app-intro">Pick a character!</p>}
+        <div className="character-list">
+          <div className="character-item">
 
-          <img src={character || placeholderLogo} className="character-image" alt="Saga Frontier logo" />
+            <img src={characterAvatar || placeholderLogo} className="character-image" alt="Saga Frontier logo" />
+              
+            { (!characterAvatar) 
+              ? <p className="app-intro">
+                  Pick a character!
+                </p>
+              : null }
 
-          { (fetching) 
-            ? <button disabled>Fetching...</button>
-            : <button onClick={onRequestCharacter} className="character-randomize-button">Randomize a Character</button>}
+            { (characterData) 
+              ? <p className="character-data">
+                  {characterData.name.first} {characterData.name.last}
+                </p>
+              : null }
 
-          { (error) && <p style={{ color: "red" }}>
-            Uh oh - something went wrong!
-            </p>}
+            { (characterData) 
+              ? <p className="character-data">
+                  {characterData.gender}
+                </p>
+              : null }
+
+            { (characterData) 
+              ? <p className="character-data">
+                  {characterData.dob.age}
+                </p>
+              : null }
+
+            { (fetching) 
+              ? <button disabled className="character-randomize-button">
+                  Fetching...
+                </button>
+              : <button onClick={onRequestCharacter} className="character-randomize-button">
+                  Randomize Character
+                </button>}
+
+            { (error) && <p style={{ color: "red" }}>
+                Woops! An error has occurred.
+              </p>}
+          </div>
         </div>
       </div>
     );
@@ -41,7 +76,8 @@ class App extends Component {
 =======================================================================================*/
 const mapStateToProps = state => {
   return {
-    character: state.character,
+    characterAvatar: state.characterAvatar,
+    characterData: state.characterData,
     fetching: state.fetching,
     error: state.error
   };
