@@ -1,5 +1,5 @@
 # Redux-Saga-Frontier
-This website will allow users to randomize then confirm a group of four characters to embark on a RPG journey. The program is intended to demonstrate a baseline setup of Redux and Saga with React.
+This website will allow users to randomize then confirm a group of four characters to embark on a RPG journey. The program is intended to demonstrate handling array structure state with Redux and Saga in React. Two APIs are used with references to one another to provide both sprite avatars and character data.
 
 ## How to Use
 A demo build will be hosted on Firebase in the near future.
