@@ -15,6 +15,7 @@ class CharacterSelect extends Component {
     const { 
       characterAvatars, 
       characterData, 
+      characterJobs,
       fetching, 
       error, 
       partyUp,
@@ -51,7 +52,12 @@ class CharacterSelect extends Component {
                     : null }
                   { (characterData[0]) 
                     ? <p className="character-data">
-                        {characterData[0].dob.age}
+                        {characterData[0].dob.age} Years Old
+                      </p>
+                    : null }
+                  { (characterData[0]) 
+                    ? <p className="character-data">
+                        {characterJobs[0]}
                       </p>
                     : null }
                   { (fetching[0]) 
@@ -84,7 +90,12 @@ class CharacterSelect extends Component {
                     : null }
                   { (characterData[1]) 
                     ? <p className="character-data">
-                        {characterData[1].dob.age}
+                        {characterData[1].dob.age} Years Old
+                      </p>
+                    : null }
+                  { (characterData[1]) 
+                    ? <p className="character-data">
+                        {characterJobs[1]}
                       </p>
                     : null }
                   { (fetching[1]) 
@@ -117,7 +128,12 @@ class CharacterSelect extends Component {
                     : null }
                   { (characterData[2]) 
                     ? <p className="character-data">
-                        {characterData[2].dob.age}
+                        {characterData[2].dob.age} Years Old
+                      </p>
+                    : null }
+                  { (characterData[2]) 
+                    ? <p className="character-data">
+                        {characterJobs[2]}
                       </p>
                     : null }
                   { (fetching[2]) 
@@ -150,7 +166,12 @@ class CharacterSelect extends Component {
                     : null }
                   { (characterData[3]) 
                     ? <p className="character-data">
-                        {characterData[3].dob.age}
+                        {characterData[3].dob.age} Years Old
+                      </p>
+                    : null }
+                  { (characterData[3]) 
+                    ? <p className="character-data">
+                        {characterJobs[3]}
                       </p>
                     : null }
                   { (fetching[3]) 
@@ -176,18 +197,22 @@ class CharacterSelect extends Component {
                     <div className="party-character">
                       <img src={characterAvatars[0]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
                       <h3 className="party-character-data">{characterData[0].name.first} {characterData[0].name.last}</h3> 
+                      <h3 className="party-character-data">{characterJobs[0]}</h3> 
                     </div>
                     <div className="party-character">
                       <img src={characterAvatars[1]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
                       <h3 className="party-character-data">{characterData[1].name.first} {characterData[1].name.last}</h3> 
+                      <h3 className="party-character-data">{characterJobs[1]}</h3>                       
                     </div>
                     <div className="party-character">
                       <img src={characterAvatars[2]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
                       <h3 className="party-character-data">{characterData[2].name.first} {characterData[2].name.last}</h3> 
+                      <h3 className="party-character-data">{characterJobs[2]}</h3>                       
                     </div>
                     <div className="party-character">
                       <img src={characterAvatars[3]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
                       <h3 className="party-character-data">{characterData[3].name.first} {characterData[3].name.last}</h3> 
+                      <h3 className="party-character-data">{characterJobs[3]}</h3>                       
                     </div>
                 </div>
                 <img src={frontierMap} className="party-frontier-map" alt="RPG map" />  
@@ -206,6 +231,7 @@ const mapStateToProps = state => {
   return {
     characterAvatars: state.characterAvatars,
     characterData: state.characterData,
+    characterJobs: state.characterJobs,
     fetching: state.fetching,
     error: state.error,
     partyUp: state.partyUp

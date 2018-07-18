@@ -6,6 +6,7 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
   characterAvatars: [null, null, null, null],
   characterData: [null, null, null, null],
+  characterJobs: [null, null, null, null],
   error: [false, false, false, false],
   fetching: [false, false, false, false],
   partyUp: false,
@@ -43,6 +44,9 @@ export function reducer(state = initialState, action) {
         ),
         characterData: state.characterData.map(
           (data, i) => i === action.characterNumber ? action.characterData : data
+        ),
+        characterJobs: state.characterJobs.map(
+          (job, i) => i === action.characterNumber ? action.characterJob : job
         ),
         fetching: [
           false, 
@@ -82,7 +86,7 @@ export function reducer(state = initialState, action) {
       };
     case actionTypes.CONFIRM_PARTY_REQUEST:
       for (let i = 0; i < 4; i++) {
-        if(state.characterAvatars[i] === null || state.characterData[i] === null) return { ...state };
+        if(state.characterAvatars[i] === null || state.characterData[i] === null || state.characterJobs[i] === null) return { ...state };
       }
       return { 
         ...state, 

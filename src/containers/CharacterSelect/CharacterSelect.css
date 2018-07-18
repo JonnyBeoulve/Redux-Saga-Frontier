@@ -16,9 +16,9 @@
 .character-item {
   display: flex;
   width: 200px;
-  height: 400px;
+  height: 520px;
   margin: 20px 40px 20px 40px;
-  padding: 40px;
+  padding: 0 40px 0 40px;
   border-radius: 3px;
   border: 2px solid #504137;
   flex-direction: column;
@@ -33,9 +33,9 @@
 .character-item-error {
   display: flex;
   width: 200px;
-  height: 400px;
+  height: 520px;
   margin: 20px 40px 20px 40px;
-  padding: 40px;
+  padding: 0 40px 0 40px;
   border-radius: 3px;
   border: 2px solid #f7b10a;
   flex-direction: column;
@@ -154,8 +154,8 @@
 .party-character {
   margin: 10px 10px 10px 10px;
   width: 180px;
-  height: 140px;
-  background-color: #383838;
+  height: 180px;
+  background-color: #535353;
   border-radius: 3px;
 }
 

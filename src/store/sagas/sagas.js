@@ -23,7 +23,8 @@ function* workerSaga(request) {
     const characterGender = (characterData.gender === 'male') ? 'male' : 'female';
     const randomSeed = yield call(randomAvatarSeed);
     const characterAvatars = `https://avatars.dicebear.com/v2/${characterGender}/${randomSeed}.svg`;
-    yield put({ type: "API_CALL_SUCCESS", characterAvatars, characterData, characterNumber });
+    const characterJob = yield call(randomCharacterJob);
+    yield put({ type: "API_CALL_SUCCESS", characterAvatars, characterData, characterJob, characterNumber });
   } catch (error) {
     yield put({ type: "API_CALL_FAILURE", error, characterNumber });
   }
@@ -46,4 +47,45 @@ function fetchCharacterData() {
 function randomAvatarSeed() {
   const seed = Math.random().toString(36).substring(7);
   return seed;
+}
+
+/*=======================================================================================
+// This Saga middleware function will randomize a job using JavaScript's random method.
+=======================================================================================*/
+function randomCharacterJob() {
+  const randomValue = Math.floor(Math.random() * 15) + 1;
+  console.log(randomValue);
+  if (randomValue === 1) {
+    return 'Squire';
+  } else if (randomValue === 2) {
+    return 'Chemist';
+  } else if (randomValue === 2) {
+    return 'Knight';
+  } else if (randomValue === 3) {
+    return 'Archer';
+  } else if (randomValue === 4) {
+    return 'White Mage';
+  } else if (randomValue === 5) {
+    return 'Black Mage';
+  } else if (randomValue === 6) {
+    return 'Monk';
+  } else if (randomValue === 7) {
+    return 'Thief';
+  } else if (randomValue === 8) {
+    return 'Geomancer';
+  } else if (randomValue === 9) {
+    return 'Dragoon';
+  } else if (randomValue === 10) {
+    return 'Summoner';
+  } else if (randomValue === 11) {
+    return 'Samurai';
+  } else if (randomValue === 12) {
+    return 'Ninja';
+  } else if (randomValue === 13) {
+    return 'Arithmetician';
+  } else if (randomValue === 14) {
+    return 'Dancer';
+  } else if (randomValue === 15) {
+    return 'Bard';
+  }
 }
