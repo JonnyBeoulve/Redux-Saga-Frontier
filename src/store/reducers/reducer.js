@@ -8,6 +8,7 @@ const initialState = {
   characterData: [null, null, null, null],
   error: [false, false, false, false],
   fetching: [false, false, false, false],
+  partyUp: false,
 };
 
 /*=======================================================================================
@@ -16,7 +17,8 @@ const initialState = {
 // fetching text within the randomize character button. Once an API call has completed
 // it will either return successful or failure. If successful, update only the state
 // of the avatar and data index corresponding to the specific character. If failure,
-// display an error in the associated character card.
+// display an error in the associated character card. Confirm Party Request will ensure
+// that four characters have been randomized before proceeding.
 =======================================================================================*/
 export function reducer(state = initialState, action) {
   switch (action.type) {
@@ -42,7 +44,12 @@ export function reducer(state = initialState, action) {
         characterData: state.characterData.map(
           (data, i) => i === action.characterNumber ? action.characterData : data
         ),
-        fetching: [false, false, false, false]
+        fetching: [
+          false, 
+          false, 
+          false, 
+          false
+        ]
       };
     case actionTypes.API_CALL_FAILURE:
       return { 
@@ -62,6 +69,24 @@ export function reducer(state = initialState, action) {
           false, 
           false
         ], 
+      };
+    case actionTypes.RESET_PARTY_REQUEST:
+      return { 
+        ...state, 
+        characterAvatars: state.characterAvatars.map(
+          (avatar, i) => null
+        ),
+        characterData: state.characterData.map(
+          (data, i) => null
+        ),
+      };
+    case actionTypes.CONFIRM_PARTY_REQUEST:
+      for (let i = 0; i < 4; i++) {
+        if(state.characterAvatars[i] === null || state.characterData[i] === null) return { ...state };
+      }
+      return { 
+        ...state, 
+        partyUp: true,
       };
     default:
       return state;

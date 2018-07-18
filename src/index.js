@@ -8,7 +8,7 @@ import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { Provider } from "react-redux";
-import { reducer } from "./store/reducers/user";
+import { reducer } from "./store/reducers/reducer";
 import { watcherSaga } from "./store/sagas/sagas";
 
 /*=======================================================================================

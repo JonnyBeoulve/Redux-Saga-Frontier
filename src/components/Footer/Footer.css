@@ -1,7 +1,7 @@
 .footer {
     margin: -20px 0px 0px 0px;
     height: 400px;
-    background: rgb(65, 60, 51);;
+    background: black;
 }
 
 .footer p {
@@ -12,4 +12,8 @@
 
 .footer a {
     color: #fff;
+}
+
+.footer a:hover {
+    color: #f7b10a;
 }
