@@ -170,9 +170,29 @@ class CharacterSelect extends Component {
                 <button className="characters-confirm-button" onClick={ onConfirmParty }>Confirm Party</button>
               </div>
           </Fragment>
-          : <div className="party-frontier">
-              <img src={frontierMap} className="party-frontier-map" alt="RPG map" />  
-            </div>}
+          : <Fragment>
+              <div className="party-frontier">
+                <div className="party-frontier-menu">
+                    <div className="party-character">
+                      <img src={characterAvatars[0]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
+                      <h3 className="party-character-data">{characterData[0].name.first} {characterData[0].name.last}</h3> 
+                    </div>
+                    <div className="party-character">
+                      <img src={characterAvatars[1]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
+                      <h3 className="party-character-data">{characterData[1].name.first} {characterData[1].name.last}</h3> 
+                    </div>
+                    <div className="party-character">
+                      <img src={characterAvatars[2]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
+                      <h3 className="party-character-data">{characterData[2].name.first} {characterData[2].name.last}</h3> 
+                    </div>
+                    <div className="party-character">
+                      <img src={characterAvatars[3]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
+                      <h3 className="party-character-data">{characterData[3].name.first} {characterData[3].name.last}</h3> 
+                    </div>
+                </div>
+                <img src={frontierMap} className="party-frontier-map" alt="RPG map" />  
+              </div>
+            </Fragment>}
         <Footer />
       </div>
     );

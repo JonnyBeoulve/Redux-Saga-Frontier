@@ -5,7 +5,7 @@
 .character-list {
   min-height: 540px;
   width: 100%;
-  padding: 50px 20px 50px 20px;
+  padding: 50px 0 50px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -138,9 +138,43 @@
 }
 
 .party-frontier {
+  padding: 0 20px 0 20px;
   min-height: 740px;
   width: 100%;
   background-color: #92857c;
+}
+
+.party-frontier-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.party-character {
+  margin: 10px 10px 10px 10px;
+  width: 180px;
+  height: 140px;
+  background-color: #383838;
+  border-radius: 3px;
+}
+
+.party-character:hover {
+  background-color: #f7b10a;
+  cursor: pointer;
+}
+
+.party-character-image {
+  display: block;
+  margin: 10px auto;
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+}
+
+.party-character-data {
+  font-size: 1em;
+  text-transform: capitalize;
 }
 
 .party-frontier-map {
