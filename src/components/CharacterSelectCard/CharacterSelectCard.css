@@ -1,0 +1,68 @@
+.character-select-card {
+    display: flex;
+    width: 200px;
+    height: 520px;
+    margin: 20px 40px 20px 40px;
+    padding: 0 40px 0 40px;
+    border-radius: 3px;
+    border: 2px solid #504137;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(201, 192, 174);
+  
+    -webkit-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+    -moz-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+    box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+  }
+  
+  .character-select-card-error {
+    display: flex;
+    width: 200px;
+    height: 520px;
+    margin: 20px 40px 20px 40px;
+    padding: 0 40px 0 40px;
+    border-radius: 3px;
+    border: 2px solid #f7b10a;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(201, 192, 174);
+  
+    -webkit-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+    -moz-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+    box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+  }
+  
+  .character-image {
+    display: block;
+    margin: 0 auto;
+    height: 160px;
+    width: 160px;
+    border-radius: 100%;
+  }
+  
+  .character-data {
+    font-size: 1em;
+    text-transform: capitalize;
+  }
+  
+  .character-randomize-button {
+    margin: 10px 0 10px 0;
+    padding: 15px;
+    font-size: 0.6em;
+    font-family: inherit;
+    text-transform: uppercase;
+    background-color: #fff;
+    border-radius: 3px;
+    border: none;
+    transition: 0.5s background-color;
+    opacity: 0.8;
+    cursor: pointer;
+  
+    -webkit-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+    -moz-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+    box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+  }
+  
+  .character-randomize-button:hover {
+    background-color: rgb(223, 217, 202)
+  }

@@ -13,7 +13,7 @@
   background-color: #92857c;
 }
 
-.character-item {
+.character-select-card {
   display: flex;
   width: 200px;
   height: 520px;
@@ -30,7 +30,7 @@
   box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
 }
 
-.character-item-error {
+.character-select-card-error {
   display: flex;
   width: 200px;
   height: 520px;

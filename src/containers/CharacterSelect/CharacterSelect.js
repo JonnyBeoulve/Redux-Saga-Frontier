@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import placeholderLogo from "../../assets/img/saga-frontier-placeholder.jpg";
+import CharacterSelectCard from '../../components/CharacterSelectCard/CharacterSelectCard';
 import frontierMap from "../../assets/img/redux-saga-frontier-map.jpg";
 import "./CharacterSelect.css";
 
@@ -33,158 +33,23 @@ class CharacterSelect extends Component {
         {(!partyUp)
           ? <Fragment>
               <div className="character-list">
-                <div className={characterAvatars[0] ? "character-item" : "character-item-error"}>
-                  <img src={characterAvatars[0] || placeholderLogo} className="character-image" alt="Saga Frontier logo" />   
-                  { (!characterAvatars[0]) 
-                    ? <p className="app-intro">
-                        Pick a character!
-                      </p>
-                    : null }
-                  { (characterData[0]) 
-                    ? <p className="character-data">
-                        {characterData[0].name.first} {characterData[0].name.last}
-                      </p>
-                    : null }
-                  { (characterData[0]) 
-                    ? <p className="character-data">
-                        {characterData[0].gender}
-                      </p>
-                    : null }
-                  { (characterData[0]) 
-                    ? <p className="character-data">
-                        {characterData[0].dob.age} Years Old
-                      </p>
-                    : null }
-                  { (characterData[0]) 
-                    ? <p className="character-data">
-                        {characterJobs[0]}
-                      </p>
-                    : null }
-                  { (fetching[0]) 
-                    ? <button disabled className="character-randomize-button">
-                        Fetching...
-                      </button>
-                    : <button onClick={ onRequestCharacter0 } className="character-randomize-button">
-                        Randomize Character
-                      </button>}
-                  { (error[0]) && <p style={{ color: "red" }}>
-                      Woops! An error has occurred.
-                    </p>}
-                </div>
-                <div className={characterAvatars[1] ? "character-item" : "character-item-error"}>
-                  <img src={characterAvatars[1] || placeholderLogo} className="character-image" alt="Saga Frontier logo" />   
-                  { (!characterAvatars[1]) 
-                    ? <p className="app-intro">
-                        Pick a character!
-                      </p>
-                    : null }
-                  { (characterData[1]) 
-                    ? <p className="character-data">
-                        {characterData[1].name.first} {characterData[1].name.last}
-                      </p>
-                    : null }
-                  { (characterData[1]) 
-                    ? <p className="character-data">
-                        {characterData[1].gender}
-                      </p>
-                    : null }
-                  { (characterData[1]) 
-                    ? <p className="character-data">
-                        {characterData[1].dob.age} Years Old
-                      </p>
-                    : null }
-                  { (characterData[1]) 
-                    ? <p className="character-data">
-                        {characterJobs[1]}
-                      </p>
-                    : null }
-                  { (fetching[1]) 
-                    ? <button disabled className="character-randomize-button">
-                        Fetching...
-                      </button>
-                    : <button onClick={ onRequestCharacter1 } className="character-randomize-button">
-                        Randomize Character
-                      </button>}
-                  { (error[1]) && <p style={{ color: "red" }}>
-                      Woops! An error has occurred.
-                    </p>}
-                </div>
-                <div className={characterAvatars[2] ? "character-item" : "character-item-error"}>
-                  <img src={characterAvatars[2] || placeholderLogo} className="character-image" alt="Saga Frontier logo" />   
-                  { (!characterAvatars[2]) 
-                    ? <p className="app-intro">
-                        Pick a character!
-                      </p>
-                    : null }
-                  { (characterData[2]) 
-                    ? <p className="character-data">
-                        {characterData[2].name.first} {characterData[2].name.last}
-                      </p>
-                    : null }
-                  { (characterData[2]) 
-                    ? <p className="character-data">
-                        {characterData[2].gender}
-                      </p>
-                    : null }
-                  { (characterData[2]) 
-                    ? <p className="character-data">
-                        {characterData[2].dob.age} Years Old
-                      </p>
-                    : null }
-                  { (characterData[2]) 
-                    ? <p className="character-data">
-                        {characterJobs[2]}
-                      </p>
-                    : null }
-                  { (fetching[2]) 
-                    ? <button disabled className="character-randomize-button">
-                        Fetching...
-                      </button>
-                    : <button onClick={ onRequestCharacter2 } className="character-randomize-button">
-                        Randomize Character
-                      </button>}
-                  { (error[2]) && <p style={{ color: "red" }}>
-                      Woops! An error has occurred.
-                    </p>}
-                </div>
-                <div className={characterAvatars[3] ? "character-item" : "character-item-error"}>
-                  <img src={characterAvatars[3] || placeholderLogo} className="character-image" alt="Saga Frontier logo" />   
-                  { (!characterAvatars[3]) 
-                    ? <p className="app-intro">
-                        Pick a character!
-                      </p>
-                    : null }
-                  { (characterData[3]) 
-                    ? <p className="character-data">
-                        {characterData[3].name.first} {characterData[3].name.last}
-                      </p>
-                    : null }
-                  { (characterData[3]) 
-                    ? <p className="character-data">
-                        {characterData[3].gender}
-                      </p>
-                    : null }
-                  { (characterData[3]) 
-                    ? <p className="character-data">
-                        {characterData[3].dob.age} Years Old
-                      </p>
-                    : null }
-                  { (characterData[3]) 
-                    ? <p className="character-data">
-                        {characterJobs[3]}
-                      </p>
-                    : null }
-                  { (fetching[3]) 
-                    ? <button disabled className="character-randomize-button">
-                        Fetching...
-                      </button>
-                    : <button className="character-randomize-button" onClick={ onRequestCharacter3 }>
-                        Randomize Character
-                      </button>}
-                  { (error[3]) && <p style={{ color: "red" }}>
-                      Woops! An error has occurred.
-                    </p>}
-                </div>
+                { characterAvatars.map((avatar, index) => {
+                  return ( 
+                    <CharacterSelectCard 
+                      key={index}
+                      charNum={index}
+                      charAvatars={characterAvatars} 
+                      charData={characterData} 
+                      charJobs={characterJobs} 
+                      fetch={fetching} 
+                      err={error} 
+                      onRequestChar0={onRequestCharacter0}
+                      onRequestChar1={onRequestCharacter1}
+                      onRequestChar2={onRequestCharacter2} 
+                      onRequestChar3={onRequestCharacter3}
+                    /> 
+                  )
+                })}
               </div>
               <div className="characters-confirm">
                 <button className="characters-reset-button" onClick={ onResetParty }>Reset Party</button>

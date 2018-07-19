@@ -54,7 +54,6 @@ function randomAvatarSeed() {
 =======================================================================================*/
 function randomCharacterJob() {
   const randomValue = Math.floor(Math.random() * 15) + 1;
-  console.log(randomValue);
   if (randomValue === 1) {
     return 'Squire';
   } else if (randomValue === 2) {
