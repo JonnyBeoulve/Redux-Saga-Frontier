@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <header className="app-header">
             <div className="app-header-logo">
-                <img src={reduxSagaFrontierLogo} className="app-header-link" alt="Redux Saga Frontier logo PNG" />
+            <a href="/"><img src={reduxSagaFrontierLogo} className="app-header-link" alt="Redux Saga Frontier logo PNG" /></a>
             </div>
             <div className="app-header-links">
                 <a href="https://www.linkedin.com/in/jleack/" target="_blank" rel="noopener noreferrer"><img src={linkedinLogo} className="app-header-link" alt="LinkedIn logo PNG" /></a>
