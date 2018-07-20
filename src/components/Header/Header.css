@@ -3,19 +3,15 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: rgb(65, 60, 51);
-    height: 50px;
-    color: #000;
+    background-color: #000;
+    padding: 10px 0 0 10px;
+    height: 60px;
 }
   
-.app-title {
-    font-size: 1em;
-}
-
 .app-header-link {
     padding: 5px 5px 5px 5px;
     height: 40px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .app-header-link:hover {

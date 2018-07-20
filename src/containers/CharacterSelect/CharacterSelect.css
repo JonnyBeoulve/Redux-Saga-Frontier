@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.character-list-background {
+  background-image: url("../../assets/img/character-list-background.jpg");
+  background-size: cover;
+}
+
 .character-list {
   min-height: 540px;
   width: 100%;
@@ -10,7 +15,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #92857c;
 }
 
 .character-select-card {
@@ -88,7 +92,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #92857c;
 }
 
 .characters-reset-button {

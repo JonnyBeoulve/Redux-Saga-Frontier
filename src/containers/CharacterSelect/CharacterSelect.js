@@ -30,59 +30,61 @@ class CharacterSelect extends Component {
     return (
       <div className="app">
         <Header />
-        {(!partyUp)
-          ? <Fragment>
-              <div className="character-list">
-                { characterAvatars.map((avatar, index) => {
-                  return ( 
-                    <CharacterSelectCard 
-                      key={index}
-                      charNum={index}
-                      charAvatars={characterAvatars} 
-                      charData={characterData} 
-                      charJobs={characterJobs} 
-                      fetch={fetching} 
-                      err={error} 
-                      onRequestChar0={onRequestCharacter0}
-                      onRequestChar1={onRequestCharacter1}
-                      onRequestChar2={onRequestCharacter2} 
-                      onRequestChar3={onRequestCharacter3}
-                    /> 
-                  )
-                })}
-              </div>
-              <div className="characters-confirm">
-                <button className="characters-reset-button" onClick={ onResetParty }>Reset Party</button>
-                <button className="characters-confirm-button" onClick={ onConfirmParty }>Confirm Party</button>
-              </div>
-          </Fragment>
-          : <Fragment>
-              <div className="party-frontier">
-                <div className="party-frontier-menu">
-                    <div className="party-character">
-                      <img src={characterAvatars[0]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
-                      <h3 className="party-character-data">{characterData[0].name.first} {characterData[0].name.last}</h3> 
-                      <h3 className="party-character-data">{characterJobs[0]}</h3> 
+          <div className="character-list-background">
+            {(!partyUp)
+              ? <Fragment>
+                  <div className="character-list">
+                    { characterAvatars.map((avatar, index) => {
+                      return ( 
+                        <CharacterSelectCard 
+                          key={index}
+                          charNum={index}
+                          charAvatars={characterAvatars} 
+                          charData={characterData} 
+                          charJobs={characterJobs} 
+                          fetch={fetching} 
+                          err={error} 
+                          onRequestChar0={onRequestCharacter0}
+                          onRequestChar1={onRequestCharacter1}
+                          onRequestChar2={onRequestCharacter2} 
+                          onRequestChar3={onRequestCharacter3}
+                        /> 
+                      )
+                    })}
+                  </div>
+                  <div className="characters-confirm">
+                    <button className="characters-reset-button" onClick={ onResetParty }>Reset Party</button>
+                    <button className="characters-confirm-button" onClick={ onConfirmParty }>Confirm Party</button>
+                  </div>
+              </Fragment>
+              : <Fragment>
+                  <div className="party-frontier">
+                    <div className="party-frontier-menu">
+                        <div className="party-character">
+                          <img src={characterAvatars[0]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
+                          <h3 className="party-character-data">{characterData[0].name.first} {characterData[0].name.last}</h3> 
+                          <h3 className="party-character-data">{characterJobs[0]}</h3> 
+                        </div>
+                        <div className="party-character">
+                          <img src={characterAvatars[1]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
+                          <h3 className="party-character-data">{characterData[1].name.first} {characterData[1].name.last}</h3> 
+                          <h3 className="party-character-data">{characterJobs[1]}</h3>                       
+                        </div>
+                        <div className="party-character">
+                          <img src={characterAvatars[2]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
+                          <h3 className="party-character-data">{characterData[2].name.first} {characterData[2].name.last}</h3> 
+                          <h3 className="party-character-data">{characterJobs[2]}</h3>                       
+                        </div>
+                        <div className="party-character">
+                          <img src={characterAvatars[3]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
+                          <h3 className="party-character-data">{characterData[3].name.first} {characterData[3].name.last}</h3> 
+                          <h3 className="party-character-data">{characterJobs[3]}</h3>                       
+                        </div>
                     </div>
-                    <div className="party-character">
-                      <img src={characterAvatars[1]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
-                      <h3 className="party-character-data">{characterData[1].name.first} {characterData[1].name.last}</h3> 
-                      <h3 className="party-character-data">{characterJobs[1]}</h3>                       
-                    </div>
-                    <div className="party-character">
-                      <img src={characterAvatars[2]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
-                      <h3 className="party-character-data">{characterData[2].name.first} {characterData[2].name.last}</h3> 
-                      <h3 className="party-character-data">{characterJobs[2]}</h3>                       
-                    </div>
-                    <div className="party-character">
-                      <img src={characterAvatars[3]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
-                      <h3 className="party-character-data">{characterData[3].name.first} {characterData[3].name.last}</h3> 
-                      <h3 className="party-character-data">{characterJobs[3]}</h3>                       
-                    </div>
-                </div>
-                <img src={frontierMap} className="party-frontier-map" alt="RPG map" />  
-              </div>
-            </Fragment>}
+                    <img src={frontierMap} className="party-frontier-map" alt="RPG map" />  
+                  </div>
+                </Fragment>}
+          </div>
         <Footer />
       </div>
     );
