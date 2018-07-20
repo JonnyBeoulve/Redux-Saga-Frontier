@@ -10,6 +10,8 @@ const initialState = {
   error: [false, false, false, false],
   fetching: [false, false, false, false],
   partyUp: false,
+  enemyData: null,
+  enemyAvatar: null,
 };
 
 /*=======================================================================================
@@ -95,6 +97,18 @@ export function reducer(state = initialState, action) {
     case actionTypes.CREATE_BATTLE_REQUEST:
       return { 
         ...state, 
+      };
+    case actionTypes.CREATE_BATTLE_SUCCESS:
+      return { 
+        ...state, 
+        enemyAvatar: action.enemyAvatar,
+        enemyData: action.enemyData
+      };
+    case actionTypes.CREATE_BATTLE_FAILURE:
+      return { 
+        ...state, 
+        enemyAvatar: null,
+        enemyData: null
       };
     default:
       return state;

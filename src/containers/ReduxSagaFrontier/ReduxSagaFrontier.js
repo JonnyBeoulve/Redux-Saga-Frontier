@@ -15,6 +15,8 @@ class CharacterSelect extends Component {
       characterAvatars, 
       characterData, 
       characterJobs,
+      enemyAvatar,
+      enemyData,
       fetching, 
       error, 
       partyUp,
@@ -81,11 +83,17 @@ class CharacterSelect extends Component {
                           <h3 className="party-character-data">{characterJobs[3]}</h3>                       
                         </div>
                     </div>
-                    <div className="frontier-enemy-menu">
-                    </div>
-                    <div className="characters-confirm">
+                    {(enemyAvatar && enemyData)
+                    ? <div className="frontier-enemy-menu">
+                        <div className="enemy-character">
+                          <img src={enemyAvatar} className="enemy-character-image" alt="Redux Saga Frontier enemy avatar" />
+                          <h3 className="enemy-character-data">{enemyData.name.last}</h3> 
+                          <h3 className="enemy-character-data">Level {enemyData.dob.age}</h3>   
+                        </div>
+                      </div>
+                    : <div className="characters-confirm">
                       <button className="characters-confirm-button" onClick={ onCreateBattle }>Find Battle</button>
-                    </div>
+                    </div> }
                   </div>
                 </Fragment>}
           </div>
@@ -103,6 +111,8 @@ const mapStateToProps = state => {
     characterAvatars: state.characterAvatars,
     characterData: state.characterData,
     characterJobs: state.characterJobs,
+    enemyAvatar: state.enemyAvatar,
+    enemyData: state.enemyData,
     fetching: state.fetching,
     error: state.error,
     partyUp: state.partyUp,
@@ -110,7 +120,9 @@ const mapStateToProps = state => {
 };
 
 /*=======================================================================================
-// Map action dispatch to props.
+// Map action dispatch to props. Type signals the corresponding reducer action. Note
+// that character is passed as part of the object to perform actions specific to a
+// party member.
 =======================================================================================*/
 const mapDispatchToProps = dispatch => {
   return {
