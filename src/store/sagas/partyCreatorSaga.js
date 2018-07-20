@@ -2,10 +2,10 @@ import axios from "axios";
 import { takeLatest, call, put } from "redux-saga/effects";
 
 /*=======================================================================================
-// Watch for Redux actions and intercept them to handle side effects.
+// Watch for party creator Redux API call action and intercept it to handle side effects.
 =======================================================================================*/
-export function* watcherSaga() {
-  yield takeLatest("API_CALL_REQUEST", workerSaga);
+export function* partyCreatorWatcherSaga() {
+  yield takeLatest("CHARACTER_CREATOR_REQUEST", partyCreatorWorkerSaga);
 }
 
 /*=======================================================================================
@@ -15,7 +15,7 @@ export function* watcherSaga() {
 // success or failure result. Note that the character number is passed in by the
 // Redux dispatch to specifically only update the corresponding character index.
 =======================================================================================*/
-function* workerSaga(request) {
+function* partyCreatorWorkerSaga(request) {
   const characterNumber = request.character;
   try {
     const randomCharacterResponse = yield call(fetchCharacterData);
@@ -24,9 +24,9 @@ function* workerSaga(request) {
     const randomSeed = yield call(randomAvatarSeed);
     const characterAvatars = `https://avatars.dicebear.com/v2/${characterGender}/${randomSeed}.svg`;
     const characterJob = yield call(randomCharacterJob);
-    yield put({ type: "API_CALL_SUCCESS", characterAvatars, characterData, characterJob, characterNumber });
+    yield put({ type: "CHARACTER_CREATOR_SUCCESS", characterAvatars, characterData, characterJob, characterNumber });
   } catch (error) {
-    yield put({ type: "API_CALL_FAILURE", error, characterNumber });
+    yield put({ type: "CHARACTER_CREATOR_FAILURE", error, characterNumber });
   }
 }
 

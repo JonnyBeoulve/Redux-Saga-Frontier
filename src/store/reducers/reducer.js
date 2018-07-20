@@ -23,7 +23,7 @@ const initialState = {
 =======================================================================================*/
 export function reducer(state = initialState, action) {
   switch (action.type) {
-    case actionTypes.API_CALL_REQUEST:
+    case actionTypes.CHARACTER_CREATOR_REQUEST:
       return { 
         ...state, 
         error: [
@@ -36,7 +36,7 @@ export function reducer(state = initialState, action) {
           (fetch, i) => i === action.character ? true : fetch
         ),
       };
-    case actionTypes.API_CALL_SUCCESS:
+    case actionTypes.CHARACTER_CREATOR_SUCCESS:
       return {
         ...state,
         characterAvatars: state.characterAvatars.map(
@@ -55,7 +55,7 @@ export function reducer(state = initialState, action) {
           false
         ]
       };
-    case actionTypes.API_CALL_FAILURE:
+    case actionTypes.CHARACTER_CREATOR_FAILURE:
       return { 
         ...state, 
         characterAvatars: state.characterAvatars.map(
@@ -91,6 +91,10 @@ export function reducer(state = initialState, action) {
       return { 
         ...state, 
         partyUp: true,
+      };
+    case actionTypes.CREATE_BATTLE_REQUEST:
+      return { 
+        ...state, 
       };
     default:
       return state;

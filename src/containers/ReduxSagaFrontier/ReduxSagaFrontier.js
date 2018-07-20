@@ -4,11 +4,10 @@ import { connect } from "react-redux";
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import CharacterSelectCard from '../../components/CharacterSelectCard/CharacterSelectCard';
-import frontierMap from "../../assets/img/redux-saga-frontier-map.jpg";
-import "./CharacterSelect.css";
+import "./ReduxSagaFrontier.css";
 
 /*=======================================================================================
-// This is the top level container.
+// This is the top level container which directly interfaces with Redux and Saga.
 =======================================================================================*/
 class CharacterSelect extends Component {
   render() {
@@ -25,6 +24,7 @@ class CharacterSelect extends Component {
       onRequestCharacter3, 
       onResetParty,
       onConfirmParty,
+      onCreateBattle,
     } = this.props;
 
     return (
@@ -58,8 +58,8 @@ class CharacterSelect extends Component {
                   </div>
               </Fragment>
               : <Fragment>
-                  <div className="party-frontier">
-                    <div className="party-frontier-menu">
+                  <div className="frontier-background">
+                    <div className="frontier-party-menu">
                         <div className="party-character">
                           <img src={characterAvatars[0]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
                           <h3 className="party-character-data">{characterData[0].name.first} {characterData[0].name.last}</h3> 
@@ -81,7 +81,11 @@ class CharacterSelect extends Component {
                           <h3 className="party-character-data">{characterJobs[3]}</h3>                       
                         </div>
                     </div>
-                    <img src={frontierMap} className="party-frontier-map" alt="RPG map" />  
+                    <div className="frontier-enemy-menu">
+                    </div>
+                    <div className="characters-confirm">
+                      <button className="characters-confirm-button" onClick={ onCreateBattle }>Find Battle</button>
+                    </div>
                   </div>
                 </Fragment>}
           </div>
@@ -101,7 +105,7 @@ const mapStateToProps = state => {
     characterJobs: state.characterJobs,
     fetching: state.fetching,
     error: state.error,
-    partyUp: state.partyUp
+    partyUp: state.partyUp,
   };
 };
 
@@ -110,12 +114,13 @@ const mapStateToProps = state => {
 =======================================================================================*/
 const mapDispatchToProps = dispatch => {
   return {
-    onRequestCharacter0: () => dispatch({ type: "API_CALL_REQUEST", character: 0 }),
-    onRequestCharacter1: () => dispatch({ type: "API_CALL_REQUEST", character: 1 }),
-    onRequestCharacter2: () => dispatch({ type: "API_CALL_REQUEST", character: 2 }),
-    onRequestCharacter3: () => dispatch({ type: "API_CALL_REQUEST", character: 3 }),
+    onRequestCharacter0: () => dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 0 }),
+    onRequestCharacter1: () => dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 1 }),
+    onRequestCharacter2: () => dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 2 }),
+    onRequestCharacter3: () => dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 3 }),
     onResetParty: () => dispatch({ type: "RESET_PARTY_REQUEST" }),
-    onConfirmParty: () => dispatch({ type: "CONFIRM_PARTY_REQUEST" })
+    onConfirmParty: () => dispatch({ type: "CONFIRM_PARTY_REQUEST" }),
+    onCreateBattle: () => dispatch({ type: "CREATE_BATTLE_REQUEST" })
   };
 };
 

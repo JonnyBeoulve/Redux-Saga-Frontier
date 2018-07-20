@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import placeholderLogo from "../../assets/img/saga-frontier-placeholder.jpg";
+import './CharacterSelectCard.css';
 
 /*=======================================================================================
 // This will render each card and their associated functionality for each of the four

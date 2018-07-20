@@ -11,3 +11,5 @@ An alpha demo is available here: https://redux-saga-frontier.firebaseapp.com/
 
 ## Notes
 Interactivity after confirming a party will be delivered in future updates.
+
+Elements of ReduxSagaFrontier.js will be split into components in an upcoming update.
