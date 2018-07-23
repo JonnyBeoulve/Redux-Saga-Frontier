@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import { reducer } from "./store/reducers/reducer";
 import { partyCreatorWatcherSaga } from "./store/sagas/partyCreatorSaga";
 import { battleCreatorWatcherSaga } from "./store/sagas/battleCreatorSaga";
+import { battleWatcherSaga } from "./store/sagas/battleSaga";
 
 /*=======================================================================================
 // Create Saga middleware and state storage.
@@ -23,6 +24,7 @@ let store = createStore(reducer, applyMiddleware(sagaMiddleware));
 =======================================================================================*/
 sagaMiddleware.run(partyCreatorWatcherSaga);
 sagaMiddleware.run(battleCreatorWatcherSaga);
+sagaMiddleware.run(battleWatcherSaga);
 
 /*=======================================================================================
 // This high order React render will wrap the App within the store provider.

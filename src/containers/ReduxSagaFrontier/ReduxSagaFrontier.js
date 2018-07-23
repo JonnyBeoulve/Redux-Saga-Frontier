@@ -28,6 +28,7 @@ class CharacterSelect extends Component {
       onResetParty,
       onConfirmParty,
       onCreateBattle,
+      onBattle,
     } = this.props;
 
     return (
@@ -55,9 +56,9 @@ class CharacterSelect extends Component {
                       )
                     })}
                   </div>
-                  <div className="characters-confirm">
-                    <button className="characters-reset-button" onClick={ onResetParty }>Reset Party</button>
-                    <button className="characters-confirm-button" onClick={ onConfirmParty }>Confirm Party</button>
+                  <div className="button-menu">
+                    <button className="secondary-button" onClick={ onResetParty }>Reset Party</button>
+                    <button className="red-button" onClick={ onConfirmParty }>Confirm Party</button>
                   </div>
               </Fragment>
               : <Fragment>
@@ -76,16 +77,23 @@ class CharacterSelect extends Component {
                       })}
                     </div>
                     {(enemyAvatar && enemyData)
-                    ? <div className="frontier-enemy-menu">
-                        <div className="enemy-character">
-                          <img src={enemyAvatar} className="enemy-character-image" alt="Redux Saga Frontier enemy avatar" />
-                          <h3 className="enemy-character-data">{enemyData.name.last}</h3> 
-                          <h3 className="enemy-character-data">Level {enemyData.dob.age}</h3>   
+                    ? <Fragment>
+                        <div className="frontier-enemy-menu">
+                          <div className="enemy-character">
+                            <img src={enemyAvatar} className="enemy-character-image" alt="Redux Saga Frontier enemy avatar" />
+                            <h3 className="enemy-character-data">{enemyData.name.last}</h3> 
+                            <h3 className="enemy-character-data">Level {enemyData.dob.age}</h3>   
+                          </div>
                         </div>
-                      </div>
-                    : <div className="characters-confirm">
-                      <button className="characters-confirm-button" onClick={ onCreateBattle }>Find Battle</button>
+                        <div className="button-menu">
+                          <button className="red-button">Retreat</button>
+                          <button className="red-button" onClick={ onBattle }>Battle Enemy</button>
+                        </div>
+                      </Fragment>
+                    : <div className="button-menu">
+                      <button className="red-button" onClick={ onCreateBattle }>Find Battle</button>
                     </div> }
+                    
                   </div>
                 </Fragment>}
           </div>
@@ -124,7 +132,8 @@ const mapDispatchToProps = dispatch => {
     onRequestCharacter3: () => dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 3 }),
     onResetParty: () => dispatch({ type: "RESET_PARTY_REQUEST" }),
     onConfirmParty: () => dispatch({ type: "CONFIRM_PARTY_REQUEST" }),
-    onCreateBattle: () => dispatch({ type: "CREATE_BATTLE_REQUEST" })
+    onCreateBattle: () => dispatch({ type: "CREATE_BATTLE_REQUEST" }),
+    onBattle: () => dispatch({ type: "BATTLE_REQUEST" }),
   };
 };
 

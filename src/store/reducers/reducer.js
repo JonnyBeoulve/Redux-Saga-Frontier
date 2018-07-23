@@ -110,6 +110,20 @@ export function reducer(state = initialState, action) {
         enemyAvatar: null,
         enemyData: null
       };
+    case actionTypes.BATTLE_REQUEST:
+      return {
+        ...state
+      };
+    case actionTypes.BATTLE_WIN:
+      console.log("WIN");
+      return {
+        ...state
+      };
+    case actionTypes.BATTLE_LOSS:
+      console.log("LOSS");
+      return {
+        ...state
+      };
     default:
       return state;
   }

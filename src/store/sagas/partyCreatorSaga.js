@@ -54,37 +54,21 @@ function randomAvatarSeed() {
 =======================================================================================*/
 function randomCharacterJob() {
   const randomValue = Math.floor(Math.random() * 15) + 1;
-  if (randomValue === 1) {
-    return 'Squire';
-  } else if (randomValue === 2) {
-    return 'Chemist';
-  } else if (randomValue === 2) {
-    return 'Knight';
-  } else if (randomValue === 3) {
-    return 'Archer';
-  } else if (randomValue === 4) {
-    return 'White Mage';
-  } else if (randomValue === 5) {
-    return 'Black Mage';
-  } else if (randomValue === 6) {
-    return 'Monk';
-  } else if (randomValue === 7) {
-    return 'Thief';
-  } else if (randomValue === 8) {
-    return 'Geomancer';
-  } else if (randomValue === 9) {
-    return 'Dragoon';
-  } else if (randomValue === 10) {
-    return 'Summoner';
-  } else if (randomValue === 11) {
-    return 'Samurai';
-  } else if (randomValue === 12) {
-    return 'Ninja';
-  } else if (randomValue === 13) {
-    return 'Arithmetician';
-  } else if (randomValue === 14) {
-    return 'Dancer';
-  } else if (randomValue === 15) {
-    return 'Bard';
-  }
+  if (randomValue === 1) return 'Squire';
+  else if (randomValue === 2) return 'Chemist';
+  else if (randomValue === 2) return 'Knight';
+  else if (randomValue === 3) return 'Archer';
+  else if (randomValue === 4) return 'White Mage';
+  else if (randomValue === 5) return 'Black Mage';
+  else if (randomValue === 6) return 'Monk';
+  else if (randomValue === 7) return 'Thief';
+  else if (randomValue === 8) return 'Geomancer';
+  else if (randomValue === 9) return 'Dragoon';
+  else if (randomValue === 10) return 'Summoner';
+  else if (randomValue === 11) return 'Samurai';
+  else if (randomValue === 12) return 'Ninja';
+  else if (randomValue === 13) return 'Arithmetician';
+  else if (randomValue === 14) return 'Dancer';
+  else if (randomValue === 15) return 'Bard';
+  else console.log("An error occurred during job randomization.")
 }
