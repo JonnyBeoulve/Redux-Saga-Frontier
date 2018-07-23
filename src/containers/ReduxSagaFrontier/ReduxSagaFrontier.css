@@ -73,7 +73,7 @@
 
 .frontier-background {
   padding: 0 20px 0 20px;
-  min-height: 740px;
+  min-height: 1040px;
   width: 100%;
   background-image: url("../../assets/img/redux-saga-frontier-map.jpg");
   background-size: cover;
@@ -89,8 +89,9 @@
 
 .party-character {
   margin: 10px 10px 10px 10px;
-  width: 180px;
-  height: 180px;
+  padding: 20px 20px 20px 20px;
+  width: 200px;
+  height: 200px;
   border-radius: 3px;
   background-color: #dfd7c6;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='%23cabea3' fill-opacity='0.2'%3E%3Cpath d='M12 0h18v6h6v6h6v18h-6v6h-6v6H12v-6H6v-6H0V12h6V6h6V0zm12 6h-6v6h-6v6H6v6h6v6h6v6h6v-6h6v-6h6v-6h-6v-6h-6V6zm-6 12h6v6h-6v-6zm24 24h6v6h-6v-6z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
@@ -123,6 +124,7 @@
 
 .enemy-character {
   margin: 10px 10px 10px 10px;
+  padding: 20px 20px 20px 20px;
   width: 280px;
   height: 280px;
   border-radius: 3px;
@@ -152,9 +154,12 @@
 .score-menu {
   display: block;
   margin: 10px auto 10px;
-  padding: 10px;
-  width: 240px;
-  height: 200px;
+  padding: 20px;
+  width: 320px;
+  height: 220px;
   background-color: #383838;
+  color: white;
+  border: 2px solid #f7b10a;
+  border-radius: 3px;
   opacity: 0.9;
 }

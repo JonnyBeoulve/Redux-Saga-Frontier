@@ -12,7 +12,7 @@ const initialState = {
   enemyAvatar: null,
   enemyLevel: null,
   partyUp: false,
-  battleOutcome: null,
+  frontierEnd: false,
   error: [false, false, false, false],
   fetching: [false, false, false, false],
 };
@@ -127,7 +127,7 @@ export function reducer(state = initialState, action) {
         score: newScoreAfterWin,
         battleOutcome: true,
         enemyData: null,
-        enemyAvatar: null
+        enemyAvatar: null,
       };
     case actionTypes.BATTLE_LOSS:
       console.log("LOSS");
@@ -137,7 +137,8 @@ export function reducer(state = initialState, action) {
         score: newScoreAfterLoss,
         battleOutcome: false,
         enemyData: null,
-        enemyAvatar: null
+        enemyAvatar: null,
+        frontierEnd: true
       };
     default:
       return state;

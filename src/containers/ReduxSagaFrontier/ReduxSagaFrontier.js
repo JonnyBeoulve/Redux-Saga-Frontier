@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import CharacterSelectCard from '../../components/CharacterSelectCard/CharacterSelectCard';
-import CharacterPartyCard from '../../components/CharacterPartyCard/CharacterPartyCard';
+import CharacterSelect from '../../components/CharacterSelect/CharacterSelect';
+import FrontierBattle from '../../components/FrontierBattle/FrontierBattle';
 import "./ReduxSagaFrontier.css";
 
 /*=======================================================================================
 // This is the top level container which directly interfaces with Redux and Saga.
 =======================================================================================*/
-class CharacterSelect extends Component {
+class ReduxSagaFrontier extends Component {
   render() {
     const { 
       score,
@@ -36,72 +36,31 @@ class CharacterSelect extends Component {
     return (
       <div className="app">
         <Header />
-          <div className="character-list-background">
-            {(!partyUp)
-              ? <Fragment>
-                  <div className="character-list">
-                    { characterAvatars.map((avatar, index) => {
-                      return ( 
-                        <CharacterSelectCard 
-                          key={index}
-                          charNum={index}
-                          charAvatars={characterAvatars} 
-                          charData={characterData} 
-                          charJobs={characterJobs} 
-                          fetch={fetching} 
-                          err={error} 
-                          onRequestChar0={onRequestCharacter0}
-                          onRequestChar1={onRequestCharacter1}
-                          onRequestChar2={onRequestCharacter2} 
-                          onRequestChar3={onRequestCharacter3}
-                        /> 
-                      )
-                    })}
-                  </div>
-                  <div className="button-menu">
-                    <button className="secondary-button" onClick={ onResetParty }>Reset Party</button>
-                    <button className="red-button" onClick={ onConfirmParty }>Confirm Party</button>
-                  </div>
-              </Fragment>
-              : <Fragment>
-                  <div className="frontier-background">
-                    <div className="frontier-party-menu">
-                      { characterAvatars.map((avatar, index) => {
-                        return ( 
-                          <CharacterPartyCard 
-                            key={index}
-                            charNum={index}
-                            charAvatars={characterAvatars} 
-                            charData={characterData} 
-                            charJobs={characterJobs} 
-                          /> 
-                        )
-                      })}
-                    </div>
-                    {(enemyAvatar && enemyData)
-                    ? <Fragment>
-                        <div className="frontier-enemy-menu">
-                          <div className="enemy-character">
-                            <img src={enemyAvatar} className="enemy-character-image" alt="Redux Saga Frontier enemy avatar" />
-                            <h3 className="enemy-character-data">{enemyData.name.last}</h3> 
-                            <h3 className="enemy-character-data">Level {enemyLevel}</h3>   
-                          </div>
-                        </div>
-                        <div className="button-menu">
-                          <button className="red-button">Retreat</button>
-                          <button className="red-button" onClick={ onBattle }>Battle Enemy</button>
-                        </div>
-                      </Fragment>
-                    : <div className="score-menu">
-                        <h2>Current Score: {score}</h2>
-                        <div className="button-menu">
-                          <button className="red-button" onClick={ onCreateBattle }>Find Battle</button>
-                        </div>
-                    </div> }
-                    
-                  </div>
-                </Fragment>}
-          </div>
+          {(!partyUp)
+            ? <CharacterSelect 
+              characterAvatars={characterAvatars} 
+              characterData={characterData} 
+              characterJobs={characterJobs} 
+              fetching={fetching} 
+              error={error} 
+              onRequestCharacter0={onRequestCharacter0}
+              onRequestCharacter1={onRequestCharacter1}
+              onRequestCharacter2={onRequestCharacter2} 
+              onRequestCharacter3={onRequestCharacter3}
+              onResetParty={onResetParty}
+              onConfirmParty={onConfirmParty}
+            />
+            : <FrontierBattle 
+              score={score}
+              characterAvatars={characterAvatars} 
+              characterData={characterData} 
+              characterJobs={characterJobs} 
+              enemyAvatar={enemyAvatar}
+              enemyData={enemyData}
+              enemyLevel={enemyLevel}
+              onCreateBattle={onCreateBattle}
+              onBattle={onBattle}
+            />}
         <Footer />
       </div>
     );
@@ -145,4 +104,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CharacterSelect);
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxSagaFrontier);

@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-frontier",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": "Jonathan Leack",
   "description": "This website will allow users to randomize then confirm a group of four characters to embark on a RPG journey. The program is intended to demonstrate handling array structure state with Redux and Saga in React. Two APIs are used with references to one another to provide both sprite avatars and character data.",
   "private": true,
