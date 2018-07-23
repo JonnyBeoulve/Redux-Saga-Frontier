@@ -13,11 +13,13 @@ import "./ReduxSagaFrontier.css";
 class CharacterSelect extends Component {
   render() {
     const { 
+      score,
       characterAvatars, 
       characterData, 
       characterJobs,
       enemyAvatar,
       enemyData,
+      enemyLevel,
       fetching, 
       error, 
       partyUp,
@@ -82,7 +84,7 @@ class CharacterSelect extends Component {
                           <div className="enemy-character">
                             <img src={enemyAvatar} className="enemy-character-image" alt="Redux Saga Frontier enemy avatar" />
                             <h3 className="enemy-character-data">{enemyData.name.last}</h3> 
-                            <h3 className="enemy-character-data">Level {enemyData.dob.age}</h3>   
+                            <h3 className="enemy-character-data">Level {enemyLevel}</h3>   
                           </div>
                         </div>
                         <div className="button-menu">
@@ -90,8 +92,11 @@ class CharacterSelect extends Component {
                           <button className="red-button" onClick={ onBattle }>Battle Enemy</button>
                         </div>
                       </Fragment>
-                    : <div className="button-menu">
-                      <button className="red-button" onClick={ onCreateBattle }>Find Battle</button>
+                    : <div className="score-menu">
+                        <h2>Current Score: {score}</h2>
+                        <div className="button-menu">
+                          <button className="red-button" onClick={ onCreateBattle }>Find Battle</button>
+                        </div>
                     </div> }
                     
                   </div>
@@ -108,11 +113,14 @@ class CharacterSelect extends Component {
 =======================================================================================*/
 const mapStateToProps = state => {
   return {
+    score: state.score,
     characterAvatars: state.characterAvatars,
     characterData: state.characterData,
     characterJobs: state.characterJobs,
+    partyLevel: state.partyLevel,
     enemyAvatar: state.enemyAvatar,
     enemyData: state.enemyData,
+    enemyLevel: state.enemyLevel,
     fetching: state.fetching,
     error: state.error,
     partyUp: state.partyUp,

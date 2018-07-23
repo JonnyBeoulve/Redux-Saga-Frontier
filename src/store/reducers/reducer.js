@@ -4,14 +4,17 @@ import * as actionTypes from '../actions/actionTypes';
 // Set initial state for Redux store.
 =======================================================================================*/
 const initialState = {
+  score: 0,
   characterAvatars: [null, null, null, null],
   characterData: [null, null, null, null],
   characterJobs: [null, null, null, null],
-  error: [false, false, false, false],
-  fetching: [false, false, false, false],
-  partyUp: false,
   enemyData: null,
   enemyAvatar: null,
+  enemyLevel: null,
+  partyUp: false,
+  battleOutcome: null,
+  error: [false, false, false, false],
+  fetching: [false, false, false, false],
 };
 
 /*=======================================================================================
@@ -50,6 +53,7 @@ export function reducer(state = initialState, action) {
         characterJobs: state.characterJobs.map(
           (job, i) => i === action.characterNumber ? action.characterJob : job
         ),
+        partyLevel: '1',
         fetching: [
           false, 
           false, 
@@ -102,7 +106,8 @@ export function reducer(state = initialState, action) {
       return { 
         ...state, 
         enemyAvatar: action.enemyAvatar,
-        enemyData: action.enemyData
+        enemyData: action.enemyData,
+        enemyLevel: action.enemyLevel
       };
     case actionTypes.CREATE_BATTLE_FAILURE:
       return { 
@@ -116,13 +121,23 @@ export function reducer(state = initialState, action) {
       };
     case actionTypes.BATTLE_WIN:
       console.log("WIN");
+      const newScoreAfterWin = state.score + state.enemyLevel;
       return {
-        ...state
+        ...state,
+        score: newScoreAfterWin,
+        battleOutcome: true,
+        enemyData: null,
+        enemyAvatar: null
       };
     case actionTypes.BATTLE_LOSS:
       console.log("LOSS");
+      const newScoreAfterLoss = state.score - state.enemyLevel;
       return {
-        ...state
+        ...state,
+        score: newScoreAfterLoss,
+        battleOutcome: false,
+        enemyData: null,
+        enemyAvatar: null
       };
     default:
       return state;
