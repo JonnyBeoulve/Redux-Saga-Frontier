@@ -1,7 +1,19 @@
 import React, { Fragment } from 'react';
+import { fadeIn } from 'react-animations';
+import { StyleSheet, css } from 'aphrodite';
 
 import placeholderLogo from "../../assets/img/saga-frontier-placeholder.jpg";
 import './CharacterSelectCard.css';
+
+/*======================================================== 
+// Animated styles using Aphrodite and React Animations.
+========================================================*/
+const styles = StyleSheet.create({
+    fadeIn: {
+        animationName: fadeIn,
+        animationDuration: '1s'
+    }
+})
 
 /*=======================================================================================
 // This will render each card and their associated functionality for each of the four
@@ -9,7 +21,7 @@ import './CharacterSelectCard.css';
 =======================================================================================*/
 const CharacterSelectCard = (props) => {
     return (
-        <div className={props.charAvatars[`${props.charNum}`] ? "character-select-card" : "character-select-card-error"}>
+        <div className={[props.charAvatars[`${props.charNum}`] ? "character-select-card" : "character-select-card-error", css(styles.fadeIn)].join(' ')}>
         <img src={props.charAvatars[`${props.charNum}`] || placeholderLogo} className="character-image" alt="Saga Frontier logo" />   
         { (!props.charAvatars[`${props.charNum}`]) 
           ? <p className="app-intro">

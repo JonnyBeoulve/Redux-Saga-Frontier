@@ -16,8 +16,10 @@
     "react-scripts": "1.0.17"
   },
   "dependencies": {
+    "aphrodite": "^2.2.2",
     "axios": "^0.17.1",
     "react": "^16.2.0",
+    "react-animations": "^1.0.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import CharacterSelectCard from '../../components/CharacterSelectCard/CharacterSelectCard';
+import CharacterPartyCard from '../../components/CharacterPartyCard/CharacterPartyCard';
 import "./ReduxSagaFrontier.css";
 
 /*=======================================================================================
@@ -62,26 +63,17 @@ class CharacterSelect extends Component {
               : <Fragment>
                   <div className="frontier-background">
                     <div className="frontier-party-menu">
-                        <div className="party-character">
-                          <img src={characterAvatars[0]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
-                          <h3 className="party-character-data">{characterData[0].name.first} {characterData[0].name.last}</h3> 
-                          <h3 className="party-character-data">{characterJobs[0]}</h3> 
-                        </div>
-                        <div className="party-character">
-                          <img src={characterAvatars[1]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
-                          <h3 className="party-character-data">{characterData[1].name.first} {characterData[1].name.last}</h3> 
-                          <h3 className="party-character-data">{characterJobs[1]}</h3>                       
-                        </div>
-                        <div className="party-character">
-                          <img src={characterAvatars[2]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
-                          <h3 className="party-character-data">{characterData[2].name.first} {characterData[2].name.last}</h3> 
-                          <h3 className="party-character-data">{characterJobs[2]}</h3>                       
-                        </div>
-                        <div className="party-character">
-                          <img src={characterAvatars[3]} className="party-character-image" alt="Redux Saga Frontier character avatar" />
-                          <h3 className="party-character-data">{characterData[3].name.first} {characterData[3].name.last}</h3> 
-                          <h3 className="party-character-data">{characterJobs[3]}</h3>                       
-                        </div>
+                      { characterAvatars.map((avatar, index) => {
+                        return ( 
+                          <CharacterPartyCard 
+                            key={index}
+                            charNum={index}
+                            charAvatars={characterAvatars} 
+                            charData={characterData} 
+                            charJobs={characterJobs} 
+                          /> 
+                        )
+                      })}
                     </div>
                     {(enemyAvatar && enemyData)
                     ? <div className="frontier-enemy-menu">
