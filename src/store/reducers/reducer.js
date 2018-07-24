@@ -4,6 +4,7 @@ import * as actionTypes from '../actions/actionTypes';
 // Set initial state for Redux store.
 =======================================================================================*/
 const initialState = {
+  gameStage: 1,
   score: 0,
   characterAvatars: [null, null, null, null],
   characterData: [null, null, null, null],
@@ -11,8 +12,6 @@ const initialState = {
   enemyData: null,
   enemyAvatar: null,
   enemyLevel: null,
-  partyUp: false,
-  frontierEnd: false,
   error: [false, false, false, false],
   fetching: [false, false, false, false],
 };
@@ -53,7 +52,6 @@ export function reducer(state = initialState, action) {
         characterJobs: state.characterJobs.map(
           (job, i) => i === action.characterNumber ? action.characterJob : job
         ),
-        partyLevel: '1',
         fetching: [
           false, 
           false, 
@@ -96,7 +94,7 @@ export function reducer(state = initialState, action) {
       }
       return { 
         ...state, 
-        partyUp: true,
+        gameStage: 2,
       };
     case actionTypes.CREATE_BATTLE_REQUEST:
       return { 
@@ -120,7 +118,6 @@ export function reducer(state = initialState, action) {
         ...state
       };
     case actionTypes.BATTLE_WIN:
-      console.log("WIN");
       const newScoreAfterWin = state.score + state.enemyLevel;
       return {
         ...state,
@@ -130,16 +127,30 @@ export function reducer(state = initialState, action) {
         enemyAvatar: null,
       };
     case actionTypes.BATTLE_LOSS:
-      console.log("LOSS");
       const newScoreAfterLoss = state.score - state.enemyLevel;
       return {
         ...state,
+        gameStage: 3,
         score: newScoreAfterLoss,
         battleOutcome: false,
         enemyData: null,
         enemyAvatar: null,
         frontierEnd: true
       };
+    case actionTypes.RESET_GAME:
+      return {
+        ...state,
+        gameStage: 1,
+        score: 0,
+        characterAvatars: [null, null, null, null],
+        characterData: [null, null, null, null],
+        characterJobs: [null, null, null, null],
+        enemyData: null,
+        enemyAvatar: null,
+        enemyLevel: null,
+        error: [false, false, false, false],
+        fetching: [false, false, false, false],
+      }
     default:
       return state;
   }

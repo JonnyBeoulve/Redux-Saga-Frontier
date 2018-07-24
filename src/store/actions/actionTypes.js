@@ -10,3 +10,4 @@ export const CREATE_BATTLE_FAILURE = "CREATE_BATTLE_FAILURE";
 export const BATTLE_REQUEST = "BATTLE_REQUEST";
 export const BATTLE_WIN = "BATTLE_WIN";
 export const BATTLE_LOSS = "BATTLE_LOSS";
+export const RESET_GAME = "RESET_GAME";

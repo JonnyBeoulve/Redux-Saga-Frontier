@@ -1,0 +1,16 @@
+.game-over {
+    width: 100%;
+    min-height: 1040px;
+    background-image: url("../../assets/img/frontier-game-over.jpg");
+    color: white;
+    background-size: cover;
+}
+
+.game-over-text {
+    padding: 200px 0 200px 0;
+}
+
+.game-over h1 {
+    font-size: 4em;
+    text-align: center;
+}

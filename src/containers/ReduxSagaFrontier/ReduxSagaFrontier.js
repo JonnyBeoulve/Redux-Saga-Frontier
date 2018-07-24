@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import CharacterSelect from '../../components/CharacterSelect/CharacterSelect';
 import FrontierBattle from '../../components/FrontierBattle/FrontierBattle';
+import GameOver from '../../components/GameOver/GameOver';
 import "./ReduxSagaFrontier.css";
 
 /*=======================================================================================
@@ -13,6 +14,7 @@ import "./ReduxSagaFrontier.css";
 class ReduxSagaFrontier extends Component {
   render() {
     const { 
+      gameStage,
       score,
       characterAvatars, 
       characterData, 
@@ -22,7 +24,6 @@ class ReduxSagaFrontier extends Component {
       enemyLevel,
       fetching, 
       error, 
-      partyUp,
       onRequestCharacter0, 
       onRequestCharacter1, 
       onRequestCharacter2, 
@@ -31,13 +32,13 @@ class ReduxSagaFrontier extends Component {
       onConfirmParty,
       onCreateBattle,
       onBattle,
+      onResetGame
     } = this.props;
 
     return (
       <div className="app">
         <Header />
-          {(!partyUp)
-            ? <CharacterSelect 
+          {gameStage === 1 && <CharacterSelect 
               characterAvatars={characterAvatars} 
               characterData={characterData} 
               characterJobs={characterJobs} 
@@ -49,8 +50,8 @@ class ReduxSagaFrontier extends Component {
               onRequestCharacter3={onRequestCharacter3}
               onResetParty={onResetParty}
               onConfirmParty={onConfirmParty}
-            />
-            : <FrontierBattle 
+            />}
+          {gameStage === 2 && <FrontierBattle 
               score={score}
               characterAvatars={characterAvatars} 
               characterData={characterData} 
@@ -60,6 +61,10 @@ class ReduxSagaFrontier extends Component {
               enemyLevel={enemyLevel}
               onCreateBattle={onCreateBattle}
               onBattle={onBattle}
+            />}
+          {gameStage === 3 && <GameOver 
+              score={score}
+              onResetGame={onResetGame}
             />}
         <Footer />
       </div>
@@ -72,17 +77,16 @@ class ReduxSagaFrontier extends Component {
 =======================================================================================*/
 const mapStateToProps = state => {
   return {
+    gameStage: state.gameStage,
     score: state.score,
     characterAvatars: state.characterAvatars,
     characterData: state.characterData,
     characterJobs: state.characterJobs,
-    partyLevel: state.partyLevel,
     enemyAvatar: state.enemyAvatar,
     enemyData: state.enemyData,
     enemyLevel: state.enemyLevel,
     fetching: state.fetching,
     error: state.error,
-    partyUp: state.partyUp,
   };
 };
 
@@ -101,6 +105,7 @@ const mapDispatchToProps = dispatch => {
     onConfirmParty: () => dispatch({ type: "CONFIRM_PARTY_REQUEST" }),
     onCreateBattle: () => dispatch({ type: "CREATE_BATTLE_REQUEST" }),
     onBattle: () => dispatch({ type: "BATTLE_REQUEST" }),
+    onResetGame: () => dispatch({ type: "RESET_GAME" })
   };
 };
 
