@@ -41,13 +41,13 @@ const FrontierBattle = (props) => {
                 </div>
                 <div className="button-menu">
                     <button className="secondary-button">Retreat</button>
-                    <button className="red-button" onClick={props.onBattle}>Battle Enemy</button>
+                    <button className="primary-button" onClick={props.onBattle}>Battle Enemy</button>
                 </div>
             </Fragment>
             : <div className="score-menu">
                 <h2>Current Score: {props.score}</h2>
                 <div className="button-menu">
-                <button className="red-button" onClick={props.onCreateBattle}>Find Battle</button>
+                <button className="primary-button" onClick={props.onCreateBattle}>Find Battle</button>
                 </div>
             </div> }
             
