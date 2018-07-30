@@ -29,8 +29,8 @@ const CharacterSelect = (props) => {
                 })}
             </div>
             <div className="button-menu">
-                <button className="secondary-button" onClick={props.onResetParty}>Reset Party</button>
-                <button className="red-button" onClick={props.onConfirmParty}>Confirm Party</button>
+                <button className="secondary-button" disabled={!props.characterData[3]} onClick={props.onResetParty}>Reset Party</button>
+                <button className="red-button" disabled={!props.characterData[3]} onClick={props.onConfirmParty}>Confirm Party</button>
             </div>
         </div>
     )

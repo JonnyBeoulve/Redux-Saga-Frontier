@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
 =======================================================================================*/
 const CharacterSelectCard = (props) => {
     return (
-        <div className={[props.charAvatars[`${props.charNum}`] ? "character-select-card" : "character-select-card-error", css(styles.fadeIn)].join(' ')}>
-        <img src={props.charAvatars[`${props.charNum}`] || placeholderLogo} className="character-image" alt="Saga Frontier logo" />   
+        <div className={["character-select-card", css(styles.fadeIn)].join(' ')}>
+        <img src={props.charAvatars[`${props.charNum}`] || placeholderLogo} className="character-image" alt="Redux Saga Frontier" />   
         { (!props.charAvatars[`${props.charNum}`]) 
           ? <p className="app-intro">
               Pick a character!
@@ -65,7 +65,7 @@ const CharacterSelectCard = (props) => {
                     ? <button disabled className="character-randomize-button">
                         Fetching...
                         </button>
-                    : <button onClick={props.onRequestChar1} className="character-randomize-button">
+                    : <button disabled={!props.charData[0]} onClick={props.onRequestChar1} className="character-randomize-button">
                         Randomize character
                         </button>}
             </Fragment>
@@ -76,7 +76,7 @@ const CharacterSelectCard = (props) => {
                     ? <button disabled className="character-randomize-button">
                         Fetching...
                         </button>
-                    : <button onClick={props.onRequestChar2} className="character-randomize-button">
+                    : <button disabled={!props.charData[1]} onClick={props.onRequestChar2} className="character-randomize-button">
                         Randomize character
                         </button>}
             </Fragment>
@@ -87,7 +87,7 @@ const CharacterSelectCard = (props) => {
                     ? <button disabled className="character-randomize-button">
                         Fetching...
                         </button>
-                    : <button onClick={props.onRequestChar3} className="character-randomize-button">
+                    : <button disabled={!props.charData[2]} onClick={props.onRequestChar3} className="character-randomize-button">
                         Randomize character
                         </button>}
             </Fragment>
