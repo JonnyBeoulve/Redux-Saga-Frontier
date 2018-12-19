@@ -209,8 +209,8 @@
   right: 20px;
   padding: 10px 20px 10px 20px;
   background-color: #383838;
-  border: 1px solid #f7b10a;
-  color: white;
+  border: 1px solid #000;
+  color: #f7b10a;
   border-radius: 3px;
   opacity: 0.9;
 }

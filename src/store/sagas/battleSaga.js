@@ -1,5 +1,5 @@
 import { takeLatest, put, select } from "redux-saga/effects";
-import * as selectors from '../selectors/enemyLevel';
+import * as selectors from '../selectors/selectors';
 
 export const getProject = (state) => state.project
 

@@ -6,6 +6,7 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
   gameStage: 1,
   score: 0,
+  highScore: 0,
   characterAvatars: [null, null, null, null],
   characterData: [null, null, null, null],
   characterJobs: [null, null, null, null],
@@ -159,6 +160,13 @@ export function reducer(state = initialState, action) {
         enemyLevel: null,
         error: [false, false, false, false],
         fetching: [false, false, false, false],
+      }
+    case actionTypes.HIGH_SCORE_READ:
+      let localHighScore = localStorage.getItem('RSF-High-Score');
+      !localHighScore ? localHighScore = 0 : null;
+      return {
+        ...state,
+        highScore: localHighScore
       }
     default:
       return state;

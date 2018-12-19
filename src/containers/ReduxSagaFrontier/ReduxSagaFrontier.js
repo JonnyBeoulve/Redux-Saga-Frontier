@@ -12,10 +12,17 @@ import "./ReduxSagaFrontier.css";
 // This is the top level container which directly interfaces with Redux and Saga.
 =======================================================================================*/
 class ReduxSagaFrontier extends Component {
+
+  componentDidMount = () => {
+    const { onHighScoreRead } = this.props;
+    onHighScoreRead();
+  }
+
   render() {
     const { 
       gameStage,
       score,
+      highScore,
       characterAvatars, 
       characterData, 
       characterJobs,
@@ -33,7 +40,7 @@ class ReduxSagaFrontier extends Component {
       onCreateBattle,
       onRetreat,
       onBattle,
-      onResetGame
+      onResetGame,
     } = this.props;
 
     return (
@@ -68,7 +75,7 @@ class ReduxSagaFrontier extends Component {
               score={score}
               onResetGame={onResetGame}
             />}
-          <div className="high-score">High Score: 0</div>
+          <div className="high-score">High Score: {highScore}</div>
         <Footer />
       </div>
     );
@@ -82,6 +89,7 @@ const mapStateToProps = state => {
   return {
     gameStage: state.gameStage,
     score: state.score,
+    highScore: state.highScore,
     characterAvatars: state.characterAvatars,
     characterData: state.characterData,
     characterJobs: state.characterJobs,
@@ -109,7 +117,8 @@ const mapDispatchToProps = dispatch => {
     onCreateBattle: () => dispatch({ type: "CREATE_BATTLE_REQUEST" }),
     onRetreat: () => dispatch({ type: "RETREAT_REQUEST" }),
     onBattle: () => dispatch({ type: "BATTLE_REQUEST" }),
-    onResetGame: () => dispatch({ type: "RESET_GAME" })
+    onResetGame: () => dispatch({ type: "RESET_GAME" }),
+    onHighScoreRead: () => dispatch({ type: "HIGH_SCORE_READ" })
   };
 };
 

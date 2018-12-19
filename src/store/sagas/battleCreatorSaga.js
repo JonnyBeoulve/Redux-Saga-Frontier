@@ -42,7 +42,7 @@ function fetchEnemyData() {
 // This Saga middleware function will randomize a level for the enemy.
 =======================================================================================*/
 function randomEnemyLevel() {
-  return Math.floor(Math.random() * 45) + 1;
+  return Math.floor(Math.random() * 35) + 1;
 }
 
 /*=======================================================================================

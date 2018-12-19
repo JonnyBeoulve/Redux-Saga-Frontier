@@ -12,3 +12,4 @@ export const BATTLE_REQUEST = "BATTLE_REQUEST";
 export const BATTLE_WIN = "BATTLE_WIN";
 export const BATTLE_LOSS = "BATTLE_LOSS";
 export const RESET_GAME = "RESET_GAME";
+export const HIGH_SCORE_READ = "HIGH_SCORE_READ";
