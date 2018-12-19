@@ -5,6 +5,8 @@ import ReactTooltip from 'react-tooltip'
 
 import CharacterPartyCard from '../CharacterPartyCard/CharacterPartyCard';
 
+import './FrontierBattle.css';
+
 /*======================================================== 
 // Animated styles using Aphrodite and React Animations.
 ========================================================*/
@@ -42,13 +44,13 @@ const FrontierBattle = (props) => {
                 </div>
                     <div className="button-menu">
                     <ReactTooltip />    
-                    <button className="secondary-button" onClick={props.onRetreat}
-                        data-tip="Losing a battle will remove points from your score equal to the level of the enemy that defeated you. By retreating, you can
-                        secure your current score.">
-                            Retreat
+                    <button className="secondary-button" onClick={props.onRetreat}>
+                        <div className="help-circle" data-tip="Losing a battle will remove points from your score equal to the level of the enemy that defeated you. By retreating, you can
+                        secure your current score."></div>
+                        Retreat
                     </button>
-                    <button className="primary-button" onClick={props.onBattle}
-                        data-tip="The level of the enemy is the percent change you will lose. If you win, you will earn points equal to the level of the enemy.">
+                    <button className="primary-button" onClick={props.onBattle}>
+                        <div className="help-circle" data-tip="The level of the enemy is the percent change you will lose. If you win, you will earn points equal to the level of the enemy."></div>
                         Battle Enemy
                     </button>
                 </div>
