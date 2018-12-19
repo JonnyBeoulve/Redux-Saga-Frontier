@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: 'Merienda', sans-serif;
 }
+
+.row {
+  max-width: 86rem;
+  margin: 0 auto;
+}

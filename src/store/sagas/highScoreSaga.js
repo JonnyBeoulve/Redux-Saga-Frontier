@@ -15,8 +15,6 @@ export function* highScoreWatcherSaga() {
 function* highScoreWorkerSaga() {
   const currentScore = yield select(selectors.score);
   const highScore = localStorage.getItem('RSF-High-Score');
-  console.log(currentScore);
-  console.log(highScore);
   if (currentScore > highScore) {
     localStorage.setItem('RSF-High-Score', currentScore);
     yield put({ type: "HIGH_SCORE_READ"});

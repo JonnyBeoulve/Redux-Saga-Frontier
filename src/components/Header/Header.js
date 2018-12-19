@@ -9,12 +9,16 @@ const Header = () => {
 
     return (
         <header className="app-header">
-            <div className="app-header-logo">
-            <a href="/"><img src={reduxSagaFrontierLogo} className="app-header-link" alt="Redux Saga Frontier logo PNG" /></a>
-            </div>
-            <div className="app-header-links">
-                <a href="https://www.linkedin.com/in/jleack/" target="_blank" rel="noopener noreferrer"><img src={linkedinLogo} className="app-header-link" alt="LinkedIn logo PNG" /></a>
-                <a href="https://github.com/JonnyBeoulve/Redux-Saga-Frontier" target="_blank" rel="noopener noreferrer"><img src={githubLogo} className="app-header-link" alt="GitHub logo PNG" /></a>
+            <div className="row">
+                <div className="app-header-flex">
+                    <div className="app-header-logo">
+                        <a href="/"><img src={reduxSagaFrontierLogo} className="app-header-link" alt="Redux Saga Frontier logo" /></a>
+                    </div>
+                    <div className="app-header-links">
+                        <a href="https://www.linkedin.com/in/jleack/" target="_blank" rel="noopener noreferrer"><img src={linkedinLogo} className="app-header-link" alt="LinkedIn logo PNG" /></a>
+                        <a href="https://github.com/JonnyBeoulve/Redux-Saga-Frontier" target="_blank" rel="noopener noreferrer"><img src={githubLogo} className="app-header-link" alt="GitHub logo PNG" /></a>
+                    </div>
+                </div>
             </div>
         </header>
     )
