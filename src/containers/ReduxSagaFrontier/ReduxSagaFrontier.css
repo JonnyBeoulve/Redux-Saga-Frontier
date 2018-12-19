@@ -18,13 +18,12 @@
 }
 
 .button-menu {
-  padding: 20px 10px 20px 10px;
+  padding: 20px 10px 50px 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 .secondary-button:disabled {
   margin: 5px 5px 5px 5px;
