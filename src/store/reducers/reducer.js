@@ -127,7 +127,7 @@ export function reducer(state = initialState, action) {
         enemyAvatar: null,
       };
     case actionTypes.BATTLE_LOSS:
-      const newScoreAfterLoss = state.score - state.enemyLevel;
+      const newScoreAfterLoss = Math.min(Math.max(state.score - state.enemyLevel, 0), 99999);
       return {
         ...state,
         gameStage: 3,

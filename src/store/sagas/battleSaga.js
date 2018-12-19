@@ -31,4 +31,4 @@ function randomBattleOutcome(eLevel) {
     const outcomeNum = Math.floor(Math.random() * 100) + 1 
     if (outcomeNum > eLevel) return true;
     else return false;
-  }
+}
