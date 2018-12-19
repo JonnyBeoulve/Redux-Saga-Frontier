@@ -110,8 +110,8 @@
 }
 
 .frontier-background {
-  padding: 0 20px 0 20px;
-  min-height: 1040px;
+  padding: 0 0 0 0;
+  min-height: 94vh;
   width: 100%;
   background-image: url("../../assets/img/redux-saga-frontier-map.jpg");
   background-size: cover;
@@ -229,4 +229,14 @@
     100% { 
         color: #ffdb88;
     }
+}
+
+@media only screen and (max-width: 600px) {
+  .score-menu {
+    width: 220px;
+  }
+
+  .frontier-background {
+    padding: 0 0 40px 0;
+  }
 }

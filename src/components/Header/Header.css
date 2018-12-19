@@ -28,3 +28,9 @@
 .app-header-links {
     margin: 0 20px 0 0;
 }
+
+@media only screen and (max-width: 600px) {
+  .app-header-link {
+    height: 30px;
+  }
+}
