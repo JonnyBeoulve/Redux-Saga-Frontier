@@ -133,7 +133,6 @@ export function reducer(state = initialState, action) {
         ...state,
         score: newScoreAfterWin,
         battleOutcome: true,
-        enemyData: null,
         enemyAvatar: null,
       };
     case actionTypes.BATTLE_LOSS:
@@ -143,7 +142,6 @@ export function reducer(state = initialState, action) {
         gameStage: 3,
         score: newScoreAfterLoss,
         battleOutcome: false,
-        enemyData: null,
         enemyAvatar: null,
         frontierEnd: true
       };
