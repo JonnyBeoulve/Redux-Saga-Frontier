@@ -113,6 +113,15 @@ export function reducer(state = initialState, action) {
         enemyAvatar: null,
         enemyData: null
       };
+    case actionTypes.RETREAT_REQUEST:
+      return {
+        ...state,
+        gameStage: 3,
+        battleOutcome: false,
+        enemyData: null,
+        enemyAvatar: null,
+        frontierEnd: true
+      };
     case actionTypes.BATTLE_REQUEST:
       return {
         ...state

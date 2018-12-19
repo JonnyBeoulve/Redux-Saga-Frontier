@@ -40,7 +40,7 @@ const FrontierBattle = (props) => {
                     </div>
                 </div>
                 <div className="button-menu">
-                    <button className="secondary-button">Retreat</button>
+                    <button className="secondary-button" onClick={props.onRetreat}>Retreat</button>
                     <button className="primary-button" onClick={props.onBattle}>Battle Enemy</button>
                 </div>
             </Fragment>

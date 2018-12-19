@@ -31,6 +31,7 @@ class ReduxSagaFrontier extends Component {
       onResetParty,
       onConfirmParty,
       onCreateBattle,
+      onRetreat,
       onBattle,
       onResetGame
     } = this.props;
@@ -60,6 +61,7 @@ class ReduxSagaFrontier extends Component {
               enemyData={enemyData}
               enemyLevel={enemyLevel}
               onCreateBattle={onCreateBattle}
+              onRetreat={onRetreat}
               onBattle={onBattle}
             />}
           {gameStage === 3 && <GameOver 
@@ -104,6 +106,7 @@ const mapDispatchToProps = dispatch => {
     onResetParty: () => dispatch({ type: "RESET_PARTY_REQUEST" }),
     onConfirmParty: () => dispatch({ type: "CONFIRM_PARTY_REQUEST" }),
     onCreateBattle: () => dispatch({ type: "CREATE_BATTLE_REQUEST" }),
+    onRetreat: () => dispatch({ type: "RETREAT_REQUEST" }),
     onBattle: () => dispatch({ type: "BATTLE_REQUEST" }),
     onResetGame: () => dispatch({ type: "RESET_GAME" })
   };
