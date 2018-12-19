@@ -68,6 +68,7 @@ class ReduxSagaFrontier extends Component {
               score={score}
               onResetGame={onResetGame}
             />}
+          <div className="high-score">High Score: 0</div>
         <Footer />
       </div>
     );

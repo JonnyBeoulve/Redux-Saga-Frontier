@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { bounceIn } from 'react-animations';
 import { StyleSheet, css } from 'aphrodite';
+import ReactTooltip from 'react-tooltip'
 
 import CharacterPartyCard from '../CharacterPartyCard/CharacterPartyCard';
 
@@ -39,9 +40,17 @@ const FrontierBattle = (props) => {
                         <h3 className="enemy-character-data">Level {props.enemyLevel}</h3>   
                     </div>
                 </div>
-                <div className="button-menu">
-                    <button className="secondary-button" onClick={props.onRetreat}>Retreat</button>
-                    <button className="primary-button" onClick={props.onBattle}>Battle Enemy</button>
+                    <div className="button-menu">
+                    <ReactTooltip />    
+                    <button className="secondary-button" onClick={props.onRetreat}
+                        data-tip="Losing a battle will remove points from your score equal to the level of the enemy that defeated you. By retreating, you can
+                        secure your current score.">
+                            Retreat
+                    </button>
+                    <button className="primary-button" onClick={props.onBattle}
+                        data-tip="The level of the enemy is the percent change you will lose. If you win, you will earn points equal to the level of the enemy.">
+                        Battle Enemy
+                    </button>
                 </div>
             </Fragment>
             : <div className="score-menu">
