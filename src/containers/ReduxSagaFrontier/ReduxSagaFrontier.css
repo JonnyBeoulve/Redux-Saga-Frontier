@@ -138,7 +138,6 @@
 
 .party-character:hover {
   background-color: #f7b10a;
-  cursor: pointer;
 }
 
 .party-character-image {
@@ -213,4 +212,22 @@
   color: #f7b10a;
   border-radius: 3px;
   opacity: 0.9;
+}
+
+.pulsate {
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.5;
+}
+
+@-webkit-keyframes pulsate {
+    0% { 
+        color: #ffdb88;
+    }
+    50% { 
+        color: #f7b10a;
+    }
+    100% { 
+        color: #ffdb88;
+    }
 }

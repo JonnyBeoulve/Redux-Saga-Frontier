@@ -69,7 +69,7 @@ const FrontierBattle = (props) => {
                 </div>
             </Fragment>
                 : <div className="score-menu">
-                {score > 0 && <h2>You defeated {enemyData.name.last}!</h2>}
+                {score > 0 && <h2 className="pulsate">You defeated {enemyData.name.last}!</h2>}
                 <h2>Current Score: {score}</h2>
                 <div className="button-menu">
                 <button className="primary-button" onClick={onCreateBattle}>Find Battle</button>
