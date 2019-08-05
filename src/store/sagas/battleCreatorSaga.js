@@ -22,7 +22,12 @@ function* battleCreatorWorkerSaga() {
     const randomEnemySeed = yield call(randomEnemyAvatarSeed);
     const enemyAvatar = `https://api.adorable.io/avatars/${randomEnemySeed}`;
     const enemyLevel = yield call(randomEnemyLevel);
-    yield put({ type: "CREATE_BATTLE_SUCCESS", enemyAvatar, enemyData, enemyLevel });
+    yield put({
+      type: "CREATE_BATTLE_SUCCESS",
+      enemyAvatar,
+      enemyData,
+      enemyLevel
+    });
   } catch (error) {
     yield put({ type: "CREATE_BATTLE_FAILURE", error });
   }
@@ -50,5 +55,7 @@ function randomEnemyLevel() {
 // a random sprite avatar from the Adorable Avatars API.
 =======================================================================================*/
 function randomEnemyAvatarSeed() {
-  return Math.random().toString(36).substring(4);
+  return Math.random()
+    .toString(36)
+    .substring(4);
 }

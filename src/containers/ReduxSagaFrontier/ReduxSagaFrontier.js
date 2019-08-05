@@ -1,81 +1,83 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
-import CharacterSelect from '../../components/CharacterSelect/CharacterSelect';
-import FrontierBattle from '../../components/FrontierBattle/FrontierBattle';
-import GameOver from '../../components/GameOver/GameOver';
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
+import FrontierBattle from "../../components/FrontierBattle/FrontierBattle";
+import GameOver from "../../components/GameOver/GameOver";
 import "./ReduxSagaFrontier.css";
 
 /*=======================================================================================
 // This is the top level container which directly interfaces with Redux and Saga.
 =======================================================================================*/
 class ReduxSagaFrontier extends Component {
-
   componentDidMount = () => {
     const { onHighScoreRead } = this.props;
     onHighScoreRead();
-  }
+  };
 
   render() {
-    const { 
+    const {
       gameStage,
       score,
       highScore,
-      characterAvatars, 
-      characterData, 
+      characterAvatars,
+      characterData,
       characterJobs,
       enemyAvatar,
       enemyData,
       enemyLevel,
-      fetching, 
-      error, 
-      onRequestCharacter0, 
-      onRequestCharacter1, 
-      onRequestCharacter2, 
-      onRequestCharacter3, 
+      fetching,
+      error,
+      onRequestCharacter0,
+      onRequestCharacter1,
+      onRequestCharacter2,
+      onRequestCharacter3,
       onResetParty,
       onConfirmParty,
       onCreateBattle,
       onRetreat,
       onBattle,
-      onResetGame,
+      onResetGame
     } = this.props;
 
     return (
       <div className="app">
         <Header />
-          {gameStage === 1 && <CharacterSelect 
-              characterAvatars={characterAvatars} 
-              characterData={characterData} 
-              characterJobs={characterJobs} 
-              fetching={fetching} 
-              error={error} 
-              onRequestCharacter0={onRequestCharacter0}
-              onRequestCharacter1={onRequestCharacter1}
-              onRequestCharacter2={onRequestCharacter2} 
-              onRequestCharacter3={onRequestCharacter3}
-              onResetParty={onResetParty}
-              onConfirmParty={onConfirmParty}
-            />}
-          {gameStage === 2 && <FrontierBattle 
-              score={score}
-              characterAvatars={characterAvatars} 
-              characterData={characterData} 
-              characterJobs={characterJobs} 
-              enemyAvatar={enemyAvatar}
-              enemyData={enemyData}
-              enemyLevel={enemyLevel}
-              onCreateBattle={onCreateBattle}
-              onRetreat={onRetreat}
-              onBattle={onBattle}
-            />}
-          {gameStage === 3 && <GameOver 
-              score={score}
-              onResetGame={onResetGame}
-            />}
-          <div className="high-score">High Score: {highScore}</div>
+        {gameStage === 1 && (
+          <CharacterSelect
+            characterAvatars={characterAvatars}
+            characterData={characterData}
+            characterJobs={characterJobs}
+            fetching={fetching}
+            error={error}
+            onRequestCharacter0={onRequestCharacter0}
+            onRequestCharacter1={onRequestCharacter1}
+            onRequestCharacter2={onRequestCharacter2}
+            onRequestCharacter3={onRequestCharacter3}
+            onResetParty={onResetParty}
+            onConfirmParty={onConfirmParty}
+          />
+        )}
+        {gameStage === 2 && (
+          <FrontierBattle
+            score={score}
+            characterAvatars={characterAvatars}
+            characterData={characterData}
+            characterJobs={characterJobs}
+            enemyAvatar={enemyAvatar}
+            enemyData={enemyData}
+            enemyLevel={enemyLevel}
+            onCreateBattle={onCreateBattle}
+            onRetreat={onRetreat}
+            onBattle={onBattle}
+          />
+        )}
+        {gameStage === 3 && (
+          <GameOver score={score} onResetGame={onResetGame} />
+        )}
+        <div className="high-score">High Score: {highScore}</div>
         <Footer />
       </div>
     );
@@ -97,7 +99,7 @@ const mapStateToProps = state => {
     enemyData: state.enemyData,
     enemyLevel: state.enemyLevel,
     fetching: state.fetching,
-    error: state.error,
+    error: state.error
   };
 };
 
@@ -108,10 +110,14 @@ const mapStateToProps = state => {
 =======================================================================================*/
 const mapDispatchToProps = dispatch => {
   return {
-    onRequestCharacter0: () => dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 0 }),
-    onRequestCharacter1: () => dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 1 }),
-    onRequestCharacter2: () => dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 2 }),
-    onRequestCharacter3: () => dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 3 }),
+    onRequestCharacter0: () =>
+      dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 0 }),
+    onRequestCharacter1: () =>
+      dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 1 }),
+    onRequestCharacter2: () =>
+      dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 2 }),
+    onRequestCharacter3: () =>
+      dispatch({ type: "CHARACTER_CREATOR_REQUEST", character: 3 }),
     onResetParty: () => dispatch({ type: "RESET_PARTY_REQUEST" }),
     onConfirmParty: () => dispatch({ type: "CONFIRM_PARTY_REQUEST" }),
     onCreateBattle: () => dispatch({ type: "CREATE_BATTLE_REQUEST" }),
@@ -122,4 +128,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReduxSagaFrontier);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ReduxSagaFrontier);

@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions/actionTypes';
+import * as actionTypes from "../actions/actionTypes";
 
 /*=======================================================================================
 // Set initial state for Redux store.
@@ -14,7 +14,7 @@ const initialState = {
   enemyAvatar: null,
   enemyLevel: null,
   error: [false, false, false, false],
-  fetching: [false, false, false, false],
+  fetching: [false, false, false, false]
 };
 
 /*=======================================================================================
@@ -29,88 +29,74 @@ const initialState = {
 export function reducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.CHARACTER_CREATOR_REQUEST:
-      return { 
-        ...state, 
-        error: [
-          false, 
-          false, 
-          false, 
-          false
-        ], 
-        fetching: state.fetching.map(
-          (fetch, i) => i === action.character ? true : fetch
-        ),
+      return {
+        ...state,
+        error: [false, false, false, false],
+        fetching: state.fetching.map((fetch, i) =>
+          i === action.character ? true : fetch
+        )
       };
     case actionTypes.CHARACTER_CREATOR_SUCCESS:
       return {
         ...state,
-        characterAvatars: state.characterAvatars.map(
-          (avatar, i) => i === action.characterNumber ? action.characterAvatars : avatar,
+        characterAvatars: state.characterAvatars.map((avatar, i) =>
+          i === action.characterNumber ? action.characterAvatars : avatar
         ),
-        characterData: state.characterData.map(
-          (data, i) => i === action.characterNumber ? action.characterData : data
+        characterData: state.characterData.map((data, i) =>
+          i === action.characterNumber ? action.characterData : data
         ),
-        characterJobs: state.characterJobs.map(
-          (job, i) => i === action.characterNumber ? action.characterJob : job
+        characterJobs: state.characterJobs.map((job, i) =>
+          i === action.characterNumber ? action.characterJob : job
         ),
-        fetching: [
-          false, 
-          false, 
-          false, 
-          false
-        ]
+        fetching: [false, false, false, false]
       };
     case actionTypes.CHARACTER_CREATOR_FAILURE:
-      return { 
-        ...state, 
-        characterAvatars: state.characterAvatars.map(
-          (avatar, i) => i === action.characterNumber ? null : avatar,
+      return {
+        ...state,
+        characterAvatars: state.characterAvatars.map((avatar, i) =>
+          i === action.characterNumber ? null : avatar
         ),
-        characterData: state.characterData.map(
-          (data, i) => i === action.characterNumber ? null : data
+        characterData: state.characterData.map((data, i) =>
+          i === action.characterNumber ? null : data
         ),
-        error: state.error.map(
-          (err, i) => i === action.characterNumber ? true : err,
+        error: state.error.map((err, i) =>
+          i === action.characterNumber ? true : err
         ),
-        fetching: [
-          false, 
-          false, 
-          false, 
-          false
-        ], 
+        fetching: [false, false, false, false]
       };
     case actionTypes.RESET_PARTY_REQUEST:
-      return { 
-        ...state, 
-        characterAvatars: state.characterAvatars.map(
-          (avatar, i) => null
-        ),
-        characterData: state.characterData.map(
-          (data, i) => null
-        ),
+      return {
+        ...state,
+        characterAvatars: state.characterAvatars.map((avatar, i) => null),
+        characterData: state.characterData.map((data, i) => null)
       };
     case actionTypes.CONFIRM_PARTY_REQUEST:
       for (let i = 0; i < 4; i++) {
-        if(state.characterAvatars[i] === null || state.characterData[i] === null || state.characterJobs[i] === null) return { ...state };
+        if (
+          state.characterAvatars[i] === null ||
+          state.characterData[i] === null ||
+          state.characterJobs[i] === null
+        )
+          return { ...state };
       }
-      return { 
-        ...state, 
-        gameStage: 2,
+      return {
+        ...state,
+        gameStage: 2
       };
     case actionTypes.CREATE_BATTLE_REQUEST:
-      return { 
-        ...state, 
+      return {
+        ...state
       };
     case actionTypes.CREATE_BATTLE_SUCCESS:
-      return { 
-        ...state, 
+      return {
+        ...state,
         enemyAvatar: action.enemyAvatar,
         enemyData: action.enemyData,
         enemyLevel: action.enemyLevel
       };
     case actionTypes.CREATE_BATTLE_FAILURE:
-      return { 
-        ...state, 
+      return {
+        ...state,
         enemyAvatar: null,
         enemyData: null
       };
@@ -133,10 +119,13 @@ export function reducer(state = initialState, action) {
         ...state,
         score: newScoreAfterWin,
         battleOutcome: true,
-        enemyAvatar: null,
+        enemyAvatar: null
       };
     case actionTypes.BATTLE_LOSS:
-      const newScoreAfterLoss = Math.min(Math.max(state.score - state.enemyLevel, 0), 99999);
+      const newScoreAfterLoss = Math.min(
+        Math.max(state.score - state.enemyLevel, 0),
+        99999
+      );
       return {
         ...state,
         gameStage: 3,
@@ -157,15 +146,15 @@ export function reducer(state = initialState, action) {
         enemyAvatar: null,
         enemyLevel: null,
         error: [false, false, false, false],
-        fetching: [false, false, false, false],
-      }
+        fetching: [false, false, false, false]
+      };
     case actionTypes.HIGH_SCORE_READ:
-      let localHighScore = localStorage.getItem('RSF-High-Score');
-      !localHighScore ? localHighScore = 0 : null;
+      let localHighScore = localStorage.getItem("RSF-High-Score");
+      !localHighScore ? (localHighScore = 0) : null;
       return {
         ...state,
         highScore: localHighScore
-      }
+      };
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import { takeLatest, put, select } from "redux-saga/effects";
-import * as selectors from '../selectors/selectors';
+import * as selectors from "../selectors/selectors";
 
-export const getProject = (state) => state.project
+export const getProject = state => state.project;
 
 /*=======================================================================================
 // Watch for battle Redux action and intercept it to handle side effects.
@@ -19,7 +19,7 @@ function* battleWorkerSaga() {
   const eLevel = yield select(selectors.enemyLevel);
   const battleOutcome = randomBattleOutcome(eLevel);
   if (battleOutcome) yield put({ type: "BATTLE_WIN" });
-  else yield put({ type: "BATTLE_LOSS"});
+  else yield put({ type: "BATTLE_LOSS" });
 }
 
 /*=======================================================================================
@@ -28,7 +28,7 @@ function* battleWorkerSaga() {
 // the random number is within the range of the enemy level, the battle has failed.
 =======================================================================================*/
 function randomBattleOutcome(eLevel) {
-    const outcomeNum = Math.floor(Math.random() * 100) + 1 
-    if (outcomeNum > eLevel) return true;
-    else return false;
+  const outcomeNum = Math.floor(Math.random() * 100) + 1;
+  if (outcomeNum > eLevel) return true;
+  else return false;
 }

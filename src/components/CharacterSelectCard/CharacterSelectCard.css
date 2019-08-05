@@ -1,71 +1,70 @@
+.character-image {
+  display: block;
+  margin: 0 auto;
+  height: 160px;
+  width: 160px;
+  border-radius: 100%;
+}
 
-  .character-image {
-    display: block;
-    margin: 0 auto;
-    height: 160px;
-    width: 160px;
-    border-radius: 100%;
-  }
-  
-  .character-data {
-    font-size: 1em;
-    text-transform: capitalize;
-  }
-  
-  .character-select-card {
-    display: flex;
-    width: 200px;
-    height: 520px;
-    margin: 20px 40px 20px 40px;
-    padding: 0 40px 0 40px;
-    border-radius: 3px;
-    border: 2px solid #504137;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #dfd7c6;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='%23cabea3' fill-opacity='0.2'%3E%3Cpath d='M12 0h18v6h6v6h6v18h-6v6h-6v6H12v-6H6v-6H0V12h6V6h6V0zm12 6h-6v6h-6v6H6v6h6v6h6v6h6v-6h6v-6h6v-6h-6v-6h-6V6zm-6 12h6v6h-6v-6zm24 24h6v6h-6v-6z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-  
-    -webkit-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
-    -moz-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
-    box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
-  }
+.character-data {
+  font-size: 1em;
+  text-transform: capitalize;
+}
 
-  .character-randomize-button:disabled {
-    margin: 10px 0 10px 0;
-    padding: 15px;
-    font-size: 0.6em;
-    font-family: inherit;
-    text-transform: uppercase;
-    background-color: #fff;
-    border-radius: 3px;
-    border: 1px solid rgb(194, 185, 161);
-    transition: 0.5s background-color;
-    opacity: 0.8;
-    cursor: not-allowed;
-  
-    -webkit-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
-    -moz-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
-    box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
-  }
+.character-select-card {
+  display: flex;
+  width: 200px;
+  height: 520px;
+  margin: 20px 40px 20px 40px;
+  padding: 0 40px 0 40px;
+  border-radius: 3px;
+  border: 2px solid #504137;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #dfd7c6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='%23cabea3' fill-opacity='0.2'%3E%3Cpath d='M12 0h18v6h6v6h6v18h-6v6h-6v6H12v-6H6v-6H0V12h6V6h6V0zm12 6h-6v6h-6v6H6v6h6v6h6v6h6v-6h6v-6h6v-6h-6v-6h-6V6zm-6 12h6v6h-6v-6zm24 24h6v6h-6v-6z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
 
-  .character-randomize-button:not(:disabled) {
-    margin: 10px 0 10px 0;
-    padding: 15px;
-    font-size: 0.6em;
-    font-family: inherit;
-    text-transform: uppercase;
-    background-color: #fff;
-    border-radius: 3px;
-    border: 1px solid rgb(194, 185, 161);
-    transition: 0.5s background-color;
-    opacity: 0.8;
-    cursor: pointer;
-  
-    -webkit-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
-    -moz-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
-    box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
-  }
-  
-  .character-randomize-button:hover {
-    background-color: rgb(223, 217, 202);
-  }
+  -webkit-box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+  -moz-box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+  box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+}
+
+.character-randomize-button:disabled {
+  margin: 10px 0 10px 0;
+  padding: 15px;
+  font-size: 0.6em;
+  font-family: inherit;
+  text-transform: uppercase;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid rgb(194, 185, 161);
+  transition: 0.5s background-color;
+  opacity: 0.8;
+  cursor: not-allowed;
+
+  -webkit-box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+  -moz-box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+  box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+}
+
+.character-randomize-button:not(:disabled) {
+  margin: 10px 0 10px 0;
+  padding: 15px;
+  font-size: 0.6em;
+  font-family: inherit;
+  text-transform: uppercase;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid rgb(194, 185, 161);
+  transition: 0.5s background-color;
+  opacity: 0.8;
+  cursor: pointer;
+
+  -webkit-box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+  -moz-box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+  box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+}
+
+.character-randomize-button:hover {
+  background-color: rgb(223, 217, 202);
+}

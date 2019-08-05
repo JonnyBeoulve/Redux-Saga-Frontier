@@ -1,27 +1,25 @@
 .help-circle {
-    margin: 0 15px 0 0;
-    font-size: 70%;
-    font-family: sans-serif;
-    vertical-align: middle;
-    font-weight: bold;
-    text-align: center;
-    display: inline-block;
-    width: 3ex;
-    height: 3ex;
-    border-radius: 15ex;
-    background: #f7b10a;
+  margin: 0 15px 0 0;
+  font-size: 70%;
+  font-family: sans-serif;
+  vertical-align: middle;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  width: 3ex;
+  height: 3ex;
+  border-radius: 15ex;
+  background: #f7b10a;
 }
 
 .help-circle::before {
-    content: "?";
-    font-size: 120%;
-    font-weight: bold;
-    color: #383838;
-    line-height: 17px;
+  content: "?";
+  font-size: 120%;
+  font-weight: bold;
+  color: #383838;
+  line-height: 17px;
 }
 
 .help-circle:hover {
-    background: #f7b10a;
+  background: #f7b10a;
 }
-
-
